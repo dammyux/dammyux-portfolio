@@ -1,0 +1,122 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: var(--font-inter), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-heading: var(--font-poppins), sans-serif;
+}
+
+:root {
+  --background: #fbfbfa;
+  --foreground: #111827;
+  --surface: #ffffff;
+  --surface-raised: #f4f4f5;
+  --border: #e5e7eb;
+  --accent: #059669;
+}
+
+.dark {
+  --background: #090a0c;
+  --foreground: #f5f6f8;
+  --surface: #111317;
+  --surface-raised: #181b20;
+  --border: #22262e;
+  --accent: #00e599;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-inter), system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  font-family: var(--font-inter), system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  overflow-x: hidden;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Headings with Poppins and user-specified styling */
+h1, h2, h3, h4, h5, h6, .font-heading {
+  font-family: var(--font-poppins), sans-serif;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+.dark h1, .dark h2, .dark h3, .dark h4, .dark h5, .dark h6 {
+  color: rgb(234, 236, 234);
+}
+
+p, .font-sans {
+  font-family: var(--font-inter), sans-serif;
+}
+
+/* Custom Selection Highlight */
+::selection {
+  background-color: rgba(0, 229, 153, 0.25);
+  color: #00e599;
+}
+
+/* Custom smooth scrollbar */
+::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+}
+
+::-webkit-scrollbar-track {
+  background: #090a0c;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #27272a;
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #10b981;
+}
+
+/* Glassmorphism utilities */
+.glass {
+  background: rgba(17, 19, 23, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.glass-light {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+/* Marquee & Dual Slider Animations */
+@keyframes marquee {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-50%); }
+}
+
+@keyframes scrollLeft {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-50%); }
+}
+
+@keyframes scrollRight {
+  0% { transform: translateX(-50%); }
+  100% { transform: translateX(0%); }
+}
+
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: marquee 35s linear infinite;
+}
+
+.animate-scroll-left {
+  display: flex;
+  width: max-content;
+  animation: scrollLeft 40s linear infinite;
+}
+
+.animate-scroll-right {
+  display: flex;
+  width: max-content;
+  animation: scrollRight 40s linear infinite;
+}
