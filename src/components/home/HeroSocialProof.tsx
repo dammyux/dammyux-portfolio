@@ -1,206 +1,192 @@
 ﻿"use client";
 
 import { motion } from "framer-motion";
-import { Star, TrendingUp, Zap, Sparkles, ShieldCheck } from "lucide-react";
-
-interface ReviewBubble {
-  id: string;
-  tag: string;
-  tagColor: string;
-  tagBg: string;
-  icon: typeof TrendingUp;
-  quote: string;
-  author: string;
-  role: string;
-  rating: number;
-  metric?: string;
-  metricLabel?: string;
-  delay: number;
-  duration: number;
-  yOffset: number;
-}
-
-const reviewBubbles: ReviewBubble[] = [
-  {
-    id: "review-1",
-    tag: "CONVERSION LIFT",
-    tagColor: "text-emerald-400",
-    tagBg: "bg-emerald-500/10 border-emerald-500/20",
-    icon: TrendingUp,
-    quote: "Dammy rebuilt our marketing site. Demo bookings skyrocketed by 140% in week one.",
-    author: "Alex Rivers",
-    role: "Founder & CEO, Synthetix",
-    rating: 5,
-    metric: "+140%",
-    metricLabel: "Lead Growth",
-    delay: 0,
-    duration: 5.5,
-    yOffset: 8,
-  },
-  {
-    id: "review-2",
-    tag: "AI VIDEO PRODUCTION",
-    tagColor: "text-brand",
-    tagBg: "bg-brand/10 border-brand/20",
-    icon: Sparkles,
-    quote: "The 3D generative film ads generated over 2.4M organic views on TikTok & IG.",
-    author: "Elena Rostov",
-    role: "Creative Director, Nexus",
-    rating: 5,
-    metric: "2.4M+",
-    metricLabel: "Impressions",
-    delay: 0.3,
-    duration: 6.2,
-    yOffset: 12,
-  },
-  {
-    id: "review-3",
-    tag: "SPEED & CRAFT",
-    tagColor: "text-cyan-400",
-    tagBg: "bg-cyan-500/10 border-cyan-500/20",
-    icon: Zap,
-    quote: "Sub-second load times, pixel-perfect Figma translation, and delivered 4 days ahead of schedule.",
-    author: "Marcus Chen",
-    role: "VP Engineering, Loom",
-    rating: 5,
-    metric: "99/100",
-    metricLabel: "PageSpeed",
-    delay: 0.6,
-    duration: 5.8,
-    yOffset: 10,
-  },
-];
+import { Star, TrendingUp, Zap, Sparkles, CheckCircle2, ShieldCheck, MessageSquare, Play } from "lucide-react";
 
 export function HeroSocialProof() {
   return (
-    <div className="relative w-full max-w-lg lg:max-w-none mx-auto py-4 flex flex-col items-center justify-center">
-      {/* Background Ambient Glow */}
-      <div className="absolute inset-0 bg-gradient-to-tr from-brand/15 via-emerald-500/5 to-transparent rounded-3xl blur-3xl pointer-events-none -z-10" />
+    <div className="relative w-full max-w-xl mx-auto py-6 flex flex-col items-center justify-center select-none">
+      {/* Ambient background glow behind bubbles */}
+      <div className="absolute inset-0 bg-gradient-to-tr from-brand/20 via-emerald-500/10 to-transparent rounded-full blur-[100px] pointer-events-none -z-10" />
 
-      {/* Main Container */}
-      <div className="w-full space-y-4 sm:space-y-5">
-        {/* Top Header Badge */}
+      {/* Floating Bubbles Stack */}
+      <div className="w-full space-y-4 relative">
+        
+        {/* TOP STATUS BUBBLE: Overall Rating & Proof */}
         <motion.div
-          initial={{ opacity: 0, y: 15 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          className="flex items-center justify-between px-5 py-3 rounded-2xl border border-neutral-200/80 dark:border-white/[0.08] bg-white/80 dark:bg-neutral-900/60 backdrop-blur-xl shadow-sm"
+          initial={{ opacity: 0, y: -20, scale: 0.95 }}
+          animate={{ opacity: 1, y: [0, -6, 0], scale: 1 }}
+          transition={{
+            opacity: { duration: 0.5 },
+            y: { duration: 4.5, repeat: Infinity, ease: "easeInOut" }
+          }}
+          className="flex items-center justify-between px-5 py-3 rounded-full border border-neutral-200/90 dark:border-white/[0.1] bg-white/90 dark:bg-neutral-900/80 backdrop-blur-xl shadow-lg hover:border-brand/40 transition-all duration-300"
         >
           <div className="flex items-center gap-3">
-            <div className="flex -space-x-2 overflow-hidden">
-              <div className="inline-flex items-center justify-center w-8 h-8 rounded-full ring-2 ring-white dark:ring-neutral-950 bg-brand text-neutral-950 text-xs font-black">
+            <div className="flex -space-x-2">
+              <div className="w-7 h-7 rounded-full bg-gradient-to-br from-emerald-400 to-brand flex items-center justify-center text-[10px] font-black text-neutral-950 ring-2 ring-white dark:ring-neutral-900">
+                SJ
+              </div>
+              <div className="w-7 h-7 rounded-full bg-gradient-to-br from-cyan-400 to-blue-500 flex items-center justify-center text-[10px] font-black text-white ring-2 ring-white dark:ring-neutral-900">
+                MT
+              </div>
+              <div className="w-7 h-7 rounded-full bg-gradient-to-br from-purple-400 to-pink-500 flex items-center justify-center text-[10px] font-black text-white ring-2 ring-white dark:ring-neutral-900">
                 AR
               </div>
-              <div className="inline-flex items-center justify-center w-8 h-8 rounded-full ring-2 ring-white dark:ring-neutral-950 bg-emerald-400 text-neutral-950 text-xs font-black">
-                ER
-              </div>
-              <div className="inline-flex items-center justify-center w-8 h-8 rounded-full ring-2 ring-white dark:ring-neutral-950 bg-cyan-400 text-neutral-950 text-xs font-black">
-                MC
-              </div>
-              <div className="inline-flex items-center justify-center w-8 h-8 rounded-full ring-2 ring-white dark:ring-neutral-950 bg-neutral-800 text-brand text-[10px] font-bold">
-                50+
-              </div>
             </div>
-            <div>
-              <div className="flex items-center gap-1 text-amber-400">
+            <div className="flex items-center gap-1.5">
+              <div className="flex items-center text-amber-400">
                 {[...Array(5)].map((_, i) => (
                   <Star key={i} className="w-3.5 h-3.5 fill-amber-400 text-amber-400" />
                 ))}
-                <span className="text-xs font-bold text-neutral-900 dark:text-white ml-1 font-display">
-                  5.0
-                </span>
               </div>
-              <p className="text-[11px] text-neutral-500 dark:text-neutral-400">
-                Verified Client Reviews
-              </p>
+              <span className="text-xs font-bold text-neutral-900 dark:text-white font-display">
+                5.0 (120+ Reviews)
+              </span>
             </div>
           </div>
 
-          <div className="hidden sm:flex items-center gap-1.5 px-3 py-1 rounded-full bg-brand/10 border border-brand/20 text-[10px] font-mono font-bold text-brand uppercase tracking-wider">
-            <ShieldCheck className="w-3.5 h-3.5" />
-            <span>100% Verified</span>
+          <span className="hidden sm:inline-flex items-center gap-1 text-[11px] font-mono font-bold text-brand uppercase px-2.5 py-0.5 rounded-full bg-brand/10 border border-brand/20">
+            <ShieldCheck className="w-3 h-3" />
+            Verified Pro
+          </span>
+        </motion.div>
+
+        {/* BUBBLE 1: Main Speech Bubble Review (Left-Aligned Chat Card) */}
+        <motion.div
+          initial={{ opacity: 0, x: -20, scale: 0.95 }}
+          animate={{ opacity: 1, x: 0, y: [0, -8, 0], scale: 1 }}
+          transition={{
+            opacity: { duration: 0.5, delay: 0.15 },
+            y: { duration: 5.2, repeat: Infinity, ease: "easeInOut", delay: 0.2 }
+          }}
+          whileHover={{ scale: 1.02, y: -4 }}
+          className="relative p-5 sm:p-6 rounded-[28px] rounded-tl-sm border border-neutral-200/90 dark:border-white/[0.1] bg-white/95 dark:bg-neutral-900/90 backdrop-blur-xl shadow-xl hover:border-brand/50 dark:hover:border-brand/40 transition-all duration-300"
+        >
+          {/* Bubble Tail Accent */}
+          <div className="flex items-start justify-between gap-3 mb-2.5">
+            <div className="flex items-center gap-2.5">
+              <div className="w-8 h-8 rounded-full bg-brand/15 border border-brand/30 flex items-center justify-center text-xs font-bold text-brand font-display">
+                SJ
+              </div>
+              <div>
+                <h4 className="text-xs sm:text-sm font-bold text-neutral-900 dark:text-white font-display leading-tight">
+                  Sarah Jenkins
+                </h4>
+                <p className="text-[11px] text-neutral-500 dark:text-neutral-400 font-sans">
+                  Head of Product, Synthetix
+                </p>
+              </div>
+            </div>
+
+            <div className="flex items-center gap-1 text-amber-400">
+              {[...Array(5)].map((_, i) => (
+                <Star key={i} className="w-3 h-3 fill-amber-400 text-amber-400" />
+              ))}
+            </div>
+          </div>
+
+          <p className="font-sans text-[13px] sm:text-[14px] leading-[20px] text-neutral-800 dark:text-neutral-200 font-normal">
+            &ldquo;Dammy redesigned and engineered our entire digital flagship in Next.js. Demo bookings skyrocketed by <span className="font-bold text-brand bg-brand/10 px-1.5 py-0.5 rounded">140%</span> in our first week after launch!&rdquo;
+          </p>
+
+          <div className="mt-3 pt-2.5 border-t border-neutral-100 dark:border-white/[0.06] flex items-center justify-between text-[10px] font-mono text-neutral-400">
+            <span className="flex items-center gap-1 text-emerald-600 dark:text-emerald-400">
+              <CheckCircle2 className="w-3 h-3" /> Website Design & Next.js
+            </span>
+            <span>2 hours ago</span>
           </div>
         </motion.div>
 
-        {/* Floating Review Bubbles */}
-        {reviewBubbles.map((bubble) => {
-          const IconComponent = bubble.icon;
-          return (
-            <motion.div
-              key={bubble.id}
-              initial={{ opacity: 0, y: 25 }}
-              animate={{
-                opacity: 1,
-                y: [0, -bubble.yOffset, 0],
-              }}
-              transition={{
-                opacity: { duration: 0.5, delay: bubble.delay },
-                y: {
-                  duration: bubble.duration,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                  delay: bubble.delay,
-                },
-              }}
-              whileHover={{ scale: 1.02, y: -4 }}
-              className="relative p-5 sm:p-6 rounded-3xl border border-neutral-200/90 dark:border-white/[0.08] bg-white dark:bg-neutral-900/70 backdrop-blur-xl shadow-lg hover:border-brand/50 dark:hover:border-brand/40 transition-colors duration-300 group"
-            >
-              <div className="flex items-start justify-between gap-4 mb-3">
-                <div
-                  className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[10px] font-mono font-bold uppercase tracking-wider border ${bubble.tagBg} ${bubble.tagColor}`}
-                >
-                  <IconComponent className="w-3 h-3" />
-                  <span>{bubble.tag}</span>
-                </div>
-
-                {bubble.metric && (
-                  <div className="text-right">
-                    <span className="block text-sm sm:text-base font-black text-brand tracking-tight font-display">
-                      {bubble.metric}
-                    </span>
-                    <span className="text-[10px] font-mono text-neutral-400 uppercase">
-                      {bubble.metricLabel}
-                    </span>
-                  </div>
-                )}
-              </div>
-
-              {/* Review Text */}
-              <p className="text-xs sm:text-sm text-neutral-700 dark:text-neutral-200 leading-relaxed italic mb-4 font-normal">
-                &ldquo;{bubble.quote}&rdquo;
-              </p>
-
-              {/* Author Info & Star Rating */}
-              <div className="pt-3 border-t border-neutral-100 dark:border-white/[0.06] flex items-center justify-between">
-                <div>
-                  <h4 className="text-xs font-bold text-neutral-900 dark:text-white leading-tight font-display">
-                    {bubble.author}
-                  </h4>
-                  <p className="text-[11px] text-neutral-500 dark:text-neutral-400">
-                    {bubble.role}
-                  </p>
-                </div>
-
-                <div className="flex items-center gap-0.5 text-amber-400">
-                  {[...Array(bubble.rating)].map((_, i) => (
-                    <Star key={i} className="w-3 h-3 fill-amber-400 text-amber-400" />
-                  ))}
-                </div>
-              </div>
-            </motion.div>
-          );
-        })}
-
-        {/* Live Status Pill */}
+        {/* BUBBLE 2: Floating Stat Pill (Right-Aligned Accent) */}
         <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.6, delay: 0.8 }}
-          className="flex items-center justify-center gap-2 text-center text-xs text-neutral-500 dark:text-neutral-400 font-mono pt-1"
+          initial={{ opacity: 0, x: 20, scale: 0.95 }}
+          animate={{ opacity: 1, x: 0, y: [0, 8, 0], scale: 1 }}
+          transition={{
+            opacity: { duration: 0.5, delay: 0.3 },
+            y: { duration: 4.8, repeat: Infinity, ease: "easeInOut", delay: 0.5 }
+          }}
+          whileHover={{ scale: 1.03 }}
+          className="ml-auto max-w-xs sm:max-w-sm p-3.5 px-5 rounded-full border border-neutral-200/90 dark:border-white/[0.1] bg-gradient-to-r from-emerald-500/10 via-brand/10 to-transparent dark:bg-neutral-900/90 backdrop-blur-xl shadow-lg flex items-center gap-3.5 hover:border-brand/50 transition-all duration-300"
         >
-          <span className="w-2 h-2 rounded-full bg-brand animate-pulse" />
-          <span>Currently accepting new project inquiries for Q1/Q2</span>
+          <div className="p-2 rounded-full bg-brand text-neutral-950 shrink-0 shadow-[0_0_15px_rgba(0,255,135,0.4)]">
+            <TrendingUp className="w-4 h-4" />
+          </div>
+          <div className="min-w-0">
+            <div className="flex items-baseline gap-1.5">
+              <span className="text-sm font-black text-neutral-900 dark:text-white font-display">
+                +140% Lead Growth
+              </span>
+              <span className="text-[10px] font-mono text-brand font-bold">AVG ROI</span>
+            </div>
+            <p className="text-[11px] text-neutral-500 dark:text-neutral-400 font-sans truncate">
+              Conversion rate lift on new redesigns
+            </p>
+          </div>
         </motion.div>
+
+        {/* BUBBLE 3: AI Video Customer Review Bubble (Left/Center Card) */}
+        <motion.div
+          initial={{ opacity: 0, y: 20, scale: 0.95 }}
+          animate={{ opacity: 1, y: [0, -7, 0], scale: 1 }}
+          transition={{
+            opacity: { duration: 0.5, delay: 0.45 },
+            y: { duration: 5.6, repeat: Infinity, ease: "easeInOut", delay: 0.8 }
+          }}
+          whileHover={{ scale: 1.02, y: -4 }}
+          className="relative p-5 sm:p-6 rounded-[28px] rounded-tr-sm border border-neutral-200/90 dark:border-white/[0.1] bg-white/95 dark:bg-neutral-900/90 backdrop-blur-xl shadow-xl hover:border-emerald-400/50 dark:hover:border-emerald-400/40 transition-all duration-300"
+        >
+          <div className="flex items-start justify-between gap-3 mb-2.5">
+            <div className="flex items-center gap-2.5">
+              <div className="w-8 h-8 rounded-full bg-cyan-400/15 border border-cyan-400/30 flex items-center justify-center text-xs font-bold text-cyan-400 font-display">
+                MT
+              </div>
+              <div>
+                <h4 className="text-xs sm:text-sm font-bold text-neutral-900 dark:text-white font-display leading-tight">
+                  Marcus Thorne
+                </h4>
+                <p className="text-[11px] text-neutral-500 dark:text-neutral-400 font-sans">
+                  VP Marketing, Apex Studio
+                </p>
+              </div>
+            </div>
+
+            <span className="inline-flex items-center gap-1 text-[10px] font-mono font-bold px-2 py-0.5 rounded-full bg-cyan-500/10 text-cyan-500 border border-cyan-500/20">
+              <Sparkles className="w-3 h-3" /> AI Video
+            </span>
+          </div>
+
+          <p className="font-sans text-[13px] sm:text-[14px] leading-[20px] text-neutral-800 dark:text-neutral-200 font-normal">
+            &ldquo;The generative AI video ads generated over <span className="font-bold text-cyan-400 bg-cyan-400/10 px-1.5 py-0.5 rounded">2.4M organic impressions</span> on TikTok. Hollywood-grade fidelity in record turnaround time.&rdquo;
+          </p>
+
+          <div className="mt-3 pt-2.5 border-t border-neutral-100 dark:border-white/[0.06] flex items-center justify-between text-[10px] font-mono text-neutral-400">
+            <span className="flex items-center gap-1 text-cyan-600 dark:text-cyan-400">
+              <CheckCircle2 className="w-3 h-3" /> Cinematic AI Campaign Suite
+            </span>
+            <span>Yesterday</span>
+          </div>
+        </motion.div>
+
+        {/* BOTTOM METRIC PILL: Speed & Uptime */}
+        <motion.div
+          initial={{ opacity: 0, y: 15 }}
+          animate={{ opacity: 1, y: [0, -5, 0] }}
+          transition={{
+            opacity: { duration: 0.5, delay: 0.6 },
+            y: { duration: 4.2, repeat: Infinity, ease: "easeInOut", delay: 1.0 }
+          }}
+          className="flex items-center justify-center gap-3 p-3 px-5 rounded-full border border-neutral-200/80 dark:border-white/[0.08] bg-white/80 dark:bg-neutral-900/60 backdrop-blur-md shadow-sm text-xs font-mono text-neutral-600 dark:text-neutral-300"
+        >
+          <span className="flex items-center gap-1 font-bold text-brand">
+            <Zap className="w-3.5 h-3.5" /> 99/100 PageSpeed
+          </span>
+          <span className="text-neutral-300 dark:text-neutral-700">•</span>
+          <span className="flex items-center gap-1 text-neutral-700 dark:text-neutral-300 font-sans font-medium">
+            Sub-second Next.js execution
+          </span>
+        </motion.div>
+
       </div>
     </div>
   );

@@ -1,23 +1,10 @@
-import type { Metadata, Viewport } from "next";
-import { Inter, Plus_Jakarta_Sans } from "next/font/google";
+﻿import type { Metadata, Viewport } from "next";
 import { siteConfig } from "@/content/site";
 import { ThemeProvider } from "@/components/layout/ThemeProvider";
 import { Preloader } from "@/components/layout/Preloader";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import "./globals.css";
-
-const inter = Inter({
-  subsets: ["latin"],
-  variable: "--font-sans",
-  display: "swap",
-});
-
-const plusJakartaSans = Plus_Jakarta_Sans({
-  subsets: ["latin"],
-  variable: "--font-display",
-  display: "swap",
-});
 
 export const metadata: Metadata = {
   title: {
@@ -59,7 +46,7 @@ export const metadata: Metadata = {
 
 export const viewport: Viewport = {
   themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#fafaf9" },
+    { media: "(prefers-color-scheme: light)", color: "#F4F6F2" },
     { media: "(prefers-color-scheme: dark)", color: "#070709" },
   ],
   width: "device-width",
@@ -75,9 +62,16 @@ export default function RootLayout({
     <html
       lang="en"
       suppressHydrationWarning
-      className={`${inter.variable} ${plusJakartaSans.variable}`}
     >
-      <body className="antialiased min-h-screen flex flex-col justify-between selection:bg-brand selection:text-neutral-950">
+      <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@400;500;600;700;800;900&display=swap"
+          rel="stylesheet"
+        />
+      </head>
+      <body className="antialiased min-h-screen flex flex-col justify-between selection:bg-brand selection:text-neutral-950 font-sans">
         <ThemeProvider
           attribute="class"
           defaultTheme="dark"

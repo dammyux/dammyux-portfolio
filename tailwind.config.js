@@ -1,4 +1,4 @@
-const path = require("path");
+﻿const path = require("path");
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
@@ -40,12 +40,12 @@ module.exports = {
         },
       },
       fontFamily: {
-        sans: ["var(--font-sans)", "Inter", "sans-serif"],
-        display: ["var(--font-display)", "Plus Jakarta Sans", "sans-serif"],
+        sans: ["Inter", "var(--font-sans)", "-apple-system", "BlinkMacSystemFont", "sans-serif"],
+        display: ["Poppins", "var(--font-display)", "sans-serif"],
       },
       animation: {
-        "marquee-left": "marqueeLeft 35s linear infinite",
-        "marquee-right": "marqueeRight 35s linear infinite",
+        "marquee-left": "marqueeLeft 60s linear infinite",
+        "marquee-right": "marqueeRight 60s linear infinite",
         "pulse-glow": "pulseGlow 4s cubic-bezier(0.4, 0, 0.6, 1) infinite",
         "float-slow": "floatSlow 6s ease-in-out infinite",
       },
