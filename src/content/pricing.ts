@@ -143,3 +143,6 @@ export const aiVideoPricing: PricingTier[] = [
     ctaLink: "/contact?service=ai-premium",
   },
 ];
+
+export const allPricingTiers: PricingTier[] = [...websitePricing, ...aiVideoPricing];
+export const pricingTiers: PricingTier[] = allPricingTiers;

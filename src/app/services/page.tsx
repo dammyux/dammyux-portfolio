@@ -1,8 +1,7 @@
 import type { Metadata } from "next";
 import { allServices } from "@/content/services";
-import { pricingTiers } from "@/content/pricing";
 import { SectionHeading } from "@/components/ui/SectionHeading";
-import { PricingCard } from "@/components/ui/PricingCard";
+import { PriceRevealSection } from "@/components/home/PriceRevealSection";
 import { Button } from "@/components/ui/Button";
 import { Check, ArrowUpRight, Sparkles } from "lucide-react";
 
@@ -193,24 +192,11 @@ export default function ServicesPage() {
       </section>
 
       {/* 4. Complete Package Pricing Reveal Tiers */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
-        <SectionHeading
-          badge="Package Tiers"
-          title="All-Inclusive Studio Packages"
-          subtitle="Fixed-scope turnkey solutions with guaranteed timelines and transparent pricing."
-          align="center"
-        />
-
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
-          {pricingTiers.map((tier) => (
-            <PricingCard
-              key={tier.id}
-              tier={tier}
-              defaultExpanded={true}
-            />
-          ))}
-        </div>
-      </section>
+      <PriceRevealSection
+        badge="Package Tiers"
+        title="All-Inclusive Studio Packages"
+        subtitle="Fixed-scope turnkey solutions with guaranteed timelines and transparent pricing."
+      />
 
       {/* 5. Custom Quote Callout */}
       <section className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6">
