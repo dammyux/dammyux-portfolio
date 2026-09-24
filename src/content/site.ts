@@ -1,4 +1,4 @@
-export interface SocialLink {
+﻿export interface SocialLink {
   label: string;
   url: string;
   handle?: string;
@@ -14,6 +14,7 @@ export interface SiteConfig {
   ogImage: string;
   email: string;
   whatsapp: string;
+  whatsappDisplay: string;
   calendlyUrl: string;
   upworkUrl: string;
   fiverrUrl: string;
@@ -33,17 +34,18 @@ export const siteConfig: SiteConfig = {
   title: "DAMMYUX — Premium Digital Studio & Portfolio",
   description:
     "Creative digital studio crafting high-converting modern websites, intuitive UI/UX experiences, and cinematic AI video production for forward-thinking brands.",
-  url: "https://dammyux.com",
+  url: "https://dammyux-portfolio.vercel.app",
   ogImage: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=1200&q=80",
-  email: "hello@dammyux.com", // [YOUR EMAIL]
-  whatsapp: "https://wa.me/1234567890", // [YOUR WHATSAPP]
-  calendlyUrl: "https://calendly.com/dammyux/discovery", // [YOUR CALENDLY]
-  upworkUrl: "https://www.upwork.com/freelancers/~dammyux", // [YOUR UPWORK]
-  fiverrUrl: "https://www.fiverr.com/dammyux", // [YOUR FIVERR]
-  linkedinUrl: "https://www.linkedin.com/in/dammyux", // [YOUR LINKEDIN]
-  instagramUrl: "https://instagram.com/dammyux", // [YOUR INSTAGRAM]
+  email: "dammyadetoro27@gmail.com",
+  whatsapp: "https://wa.me/2348133537578",
+  whatsappDisplay: "08133537578",
+  calendlyUrl: "https://calendly.com/dammyadetoro27",
+  upworkUrl: "https://www.upwork.com/freelancers/~01df4fc2f072205084?mp_source=share",
+  fiverrUrl: "https://www.fiverr.com/dammyux",
+  linkedinUrl: "https://www.linkedin.com/in/adetoro-hammed-b2402b223",
+  instagramUrl: "https://instagram.com/dammyux",
   githubUrl: "https://github.com/dammyux",
-  location: "Worldwide / Remote", // [YOUR LOCATION]
+  location: "Worldwide / Remote",
   availability: "Available for Q1/Q2 Projects",
   copyrightYear: 2026,
   navigation: [

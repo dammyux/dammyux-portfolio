@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useEffect, useRef, useState } from "react";
 import * as THREE from "three";
@@ -27,13 +27,13 @@ export function HeroScene() {
     }
 
     const container = containerRef.current;
-    const width = container.clientWidth || 400;
-    const height = container.clientHeight || 400;
+    const width = container.clientWidth || 360;
+    const height = container.clientHeight || 360;
 
     // Scene, Camera, Renderer
     const scene = new THREE.Scene();
     const camera = new THREE.PerspectiveCamera(45, width / height, 0.1, 1000);
-    camera.position.z = 6;
+    camera.position.z = 5.5;
 
     const renderer = new THREE.WebGLRenderer({
       alpha: true,
@@ -49,66 +49,66 @@ export function HeroScene() {
     const group = new THREE.Group();
     scene.add(group);
 
-    // 1. Central Multifaceted Studio Geometry (Icosahedron + Torus Knot rings)
     const isDark = resolvedTheme === "dark";
 
-    const geomMain = new THREE.IcosahedronGeometry(1.6, 1);
+    // 1. Central Multifaceted Studio Geometry (Balanced scale: 1.35)
+    const geomMain = new THREE.IcosahedronGeometry(1.35, 1);
     const matMain = new THREE.MeshPhysicalMaterial({
-      color: isDark ? 0x0f1118 : 0xf0fdf4,
-      metalness: 0.85,
-      roughness: 0.15,
+      color: isDark ? 0x0c0e14 : 0xeaf5ec,
+      metalness: isDark ? 0.8 : 0.2,
+      roughness: isDark ? 0.2 : 0.3,
       clearcoat: 1.0,
-      clearcoatRoughness: 0.1,
+      clearcoatRoughness: 0.15,
       wireframe: false,
       flatShading: true,
       transparent: true,
-      opacity: 0.9,
+      opacity: isDark ? 0.92 : 0.85,
     });
     const mainMesh = new THREE.Mesh(geomMain, matMain);
     group.add(mainMesh);
 
     // 2. Glowing Green Wireframe Overlay
-    const geomWire = new THREE.IcosahedronGeometry(1.62, 1);
+    const geomWire = new THREE.IcosahedronGeometry(1.37, 1);
     const wireMat = new THREE.MeshBasicMaterial({
-      color: 0x00ff87,
+      color: isDark ? 0x00ff87 : 0x059669,
       wireframe: true,
       transparent: true,
-      opacity: isDark ? 0.6 : 0.4,
+      opacity: isDark ? 0.55 : 0.45,
     });
     const wireMesh = new THREE.Mesh(geomWire, wireMat);
     group.add(wireMesh);
 
     // 3. Orbital Ring 1
-    const ringGeom1 = new THREE.TorusGeometry(2.4, 0.02, 16, 100);
+    const ringGeom1 = new THREE.TorusGeometry(2.1, 0.018, 16, 80);
     const ringMat1 = new THREE.MeshBasicMaterial({
-      color: 0x00ff87,
+      color: isDark ? 0x00ff87 : 0x10b981,
       transparent: true,
-      opacity: 0.4,
+      opacity: isDark ? 0.4 : 0.3,
     });
     const ring1 = new THREE.Mesh(ringGeom1, ringMat1);
     ring1.rotation.x = Math.PI / 3;
     group.add(ring1);
 
     // 4. Orbital Ring 2
-    const ringGeom2 = new THREE.TorusGeometry(2.9, 0.015, 16, 100);
+    const ringGeom2 = new THREE.TorusGeometry(2.5, 0.012, 16, 80);
     const ringMat2 = new THREE.MeshBasicMaterial({
-      color: isDark ? 0x10b981 : 0x059669,
+      color: isDark ? 0x10b981 : 0x047857,
       transparent: true,
-      opacity: 0.25,
+      opacity: isDark ? 0.25 : 0.2,
     });
     const ring2 = new THREE.Mesh(ringGeom2, ringMat2);
     ring2.rotation.y = Math.PI / 4;
     group.add(ring2);
 
     // 5. Floating Particle Cloud
-    const particleCount = 70;
+    const particleCount = 50;
     const particleGeom = new THREE.BufferGeometry();
     const positions = new Float32Array(particleCount * 3);
 
     for (let i = 0; i < particleCount * 3; i += 3) {
-      positions[i] = (Math.random() - 0.5) * 8;
-      positions[i + 1] = (Math.random() - 0.5) * 8;
-      positions[i + 2] = (Math.random() - 0.5) * 6;
+      positions[i] = (Math.random() - 0.5) * 7;
+      positions[i + 1] = (Math.random() - 0.5) * 7;
+      positions[i + 2] = (Math.random() - 0.5) * 5;
     }
 
     particleGeom.setAttribute(
@@ -116,25 +116,25 @@ export function HeroScene() {
       new THREE.BufferAttribute(positions, 3)
     );
     const particleMat = new THREE.PointsMaterial({
-      color: 0x00ff87,
-      size: 0.05,
+      color: isDark ? 0x00ff87 : 0x059669,
+      size: 0.045,
       transparent: true,
-      opacity: 0.6,
+      opacity: isDark ? 0.6 : 0.45,
     });
     const particles = new THREE.Points(particleGeom, particleMat);
     group.add(particles);
 
     // Lights
-    const ambientLight = new THREE.AmbientLight(0xffffff, isDark ? 0.7 : 1.2);
+    const ambientLight = new THREE.AmbientLight(0xffffff, isDark ? 0.8 : 1.3);
     scene.add(ambientLight);
 
-    const greenPointLight = new THREE.PointLight(0x00ff87, 4, 10);
+    const greenPointLight = new THREE.PointLight(0x00ff87, isDark ? 3.5 : 2.5, 10);
     greenPointLight.position.set(3, 3, 3);
     scene.add(greenPointLight);
 
-    const purplePointLight = new THREE.PointLight(0x10b981, 2, 10);
-    purplePointLight.position.set(-3, -2, 2);
-    scene.add(purplePointLight);
+    const fillPointLight = new THREE.PointLight(0x10b981, isDark ? 2 : 1.5, 10);
+    fillPointLight.position.set(-3, -2, 2);
+    scene.add(fillPointLight);
 
     // Mouse Interaction
     let targetRotationX = 0;
@@ -147,8 +147,8 @@ export function HeroScene() {
       mouseX = ((event.clientX - rect.left) / rect.width) * 2 - 1;
       mouseY = -(((event.clientY - rect.top) / rect.height) * 2 - 1);
 
-      targetRotationY = mouseX * 0.8;
-      targetRotationX = -mouseY * 0.6;
+      targetRotationY = mouseX * 0.6;
+      targetRotationX = -mouseY * 0.4;
     };
 
     window.addEventListener("mousemove", handleMouseMove, { passive: true });
@@ -167,27 +167,27 @@ export function HeroScene() {
 
     // Animation Loop
     let animationFrameId: number;
-    let clock = new THREE.Clock();
+    const clock = new THREE.Clock();
 
     const animate = () => {
       const elapsedTime = clock.getElapsedTime();
 
       // Continuous subtle idle rotation
-      mainMesh.rotation.y += 0.005;
-      mainMesh.rotation.x += 0.003;
-      wireMesh.rotation.y += 0.005;
-      wireMesh.rotation.x += 0.003;
+      mainMesh.rotation.y += 0.004;
+      mainMesh.rotation.x += 0.0025;
+      wireMesh.rotation.y += 0.004;
+      wireMesh.rotation.x += 0.0025;
 
-      ring1.rotation.z += 0.004;
-      ring2.rotation.x += 0.003;
-      particles.rotation.y = elapsedTime * 0.02;
+      ring1.rotation.z += 0.003;
+      ring2.rotation.x += 0.0025;
+      particles.rotation.y = elapsedTime * 0.015;
 
       // Mouse Lerp Smooth Transition
-      group.rotation.y += (targetRotationY - group.rotation.y) * 0.05;
-      group.rotation.x += (targetRotationX - group.rotation.x) * 0.05;
+      group.rotation.y += (targetRotationY - group.rotation.y) * 0.04;
+      group.rotation.x += (targetRotationX - group.rotation.x) * 0.04;
 
-      // Floating wave
-      group.position.y = Math.sin(elapsedTime * 1.5) * 0.15;
+      // Gentle floating oscillation
+      group.position.y = Math.sin(elapsedTime * 1.2) * 0.12;
 
       renderer.render(scene, camera);
       animationFrameId = requestAnimationFrame(animate);
@@ -222,15 +222,15 @@ export function HeroScene() {
   if (!isSupported) {
     return (
       <div className="w-full h-full flex items-center justify-center p-8">
-        <div className="w-48 h-48 rounded-full bg-gradient-to-tr from-brand/30 to-emerald-500/10 blur-3xl" />
+        <div className="w-44 h-44 rounded-full bg-gradient-to-tr from-brand/30 to-emerald-500/10 blur-3xl" />
       </div>
     );
   }
 
   return (
-    <div className="relative w-full h-[380px] sm:h-[480px] lg:h-[550px] flex items-center justify-center">
-      {/* Background Soft Glow */}
-      <div className="absolute w-72 h-72 rounded-full bg-brand/15 blur-[120px] pointer-events-none -z-10" />
+    <div className="relative w-full h-[340px] sm:h-[440px] lg:h-[480px] flex items-center justify-center">
+      {/* Background Ambient Glow */}
+      <div className="absolute w-64 h-64 rounded-full bg-brand/12 blur-[100px] pointer-events-none -z-10" />
 
       {/* Canvas container */}
       <div
