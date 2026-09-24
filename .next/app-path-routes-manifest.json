@@ -1,12 +1,12 @@
 {
-  "/_not-found/page": "/_not-found",
-  "/sitemap.xml/route": "/sitemap.xml",
   "/robots.txt/route": "/robots.txt",
+  "/sitemap.xml/route": "/sitemap.xml",
+  "/_not-found/page": "/_not-found",
   "/page": "/",
-  "/work/page": "/work",
   "/case-studies/page": "/case-studies",
-  "/work/[slug]/page": "/work/[slug]",
+  "/about/page": "/about",
   "/services/page": "/services",
   "/contact/page": "/contact",
-  "/about/page": "/about"
+  "/work/page": "/work",
+  "/work/[slug]/page": "/work/[slug]"
 }
