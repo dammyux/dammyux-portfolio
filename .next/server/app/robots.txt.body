@@ -1,6 +1,0 @@
-User-Agent: *
-Allow: /
-Disallow: /work/*
-Disallow: /case-studies/*
-
-Sitemap: https://dammyux-portfolio.vercel.app/sitemap.xml
