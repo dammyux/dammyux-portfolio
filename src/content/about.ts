@@ -1,4 +1,4 @@
-export interface TimelineItem {
+﻿export interface TimelineItem {
   year: string;
   role: string;
   company: string;
@@ -40,19 +40,19 @@ export interface AboutContent {
 }
 
 export const aboutContent: AboutContent = {
-  fullName: "DammyUX", // [YOUR NAME]
-  title: "Lead Digital Designer, Web Architect & AI Video Producer", // [YOUR PROFESSIONAL TITLE]
+  fullName: "DammyUX",
+  title: "Lead Digital Designer, Web Architect & AI Video Producer",
   shortBio:
-    "I craft hyper-tailored digital experiences, scalable web applications, and cinematic AI-powered visual narratives that elevate brands into category leaders.", // [YOUR SHORT BIO]
+    "I craft hyper-tailored digital experiences, scalable web applications, and cinematic AI-powered visual narratives that elevate brands into category leaders.",
   longBio: [
     "With over 6+ years at the intersection of design, engineering, and visual media, I build web solutions that balance aesthetic elegance with high-performance business conversion.",
     "From high-growth venture-backed startups to international agency clients, my mission is simple: eliminate friction, inject personality, and build digital touchpoints people genuinely love to interact with.",
     "In 2024–2026, I expanded my creative toolkit into cutting-edge AI video generation and generative motion, producing viral video ads, brand commercials, and product launch trailers with Hollywood-tier visual fidelity.",
   ],
-  yearsOfExperience: "6+", // [YOUR YEARS OF EXPERIENCE]
+  yearsOfExperience: "6+",
   completedProjects: "120+",
   clientSatisfaction: "100%",
-  location: "Global / Remote", // [YOUR LOCATION]
+  location: "Global / Remote",
   philosophy: {
     headline: "Simplicity through rigorous intentionality.",
     points: [
@@ -156,6 +156,6 @@ export const aboutContent: AboutContent = {
       skills: ["Technical SEO", "Core Web Vitals", "Schema Markup", "Google Analytics 4", "Semrush", "Conversion Rate Optimization"],
     },
   ],
-  cvUrl: "/resume.pdf", // [YOUR CV FILE]
-  image: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=800&q=80", // [YOUR IMAGE PLACEHOLDER]
+  cvUrl: "/resume.pdf",
+  image: "/images/dammy-profile.jpg",
 };

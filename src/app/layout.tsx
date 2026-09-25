@@ -45,10 +45,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#F4F6F2" },
-    { media: "(prefers-color-scheme: dark)", color: "#070709" },
-  ],
+  themeColor: "#070709",
   width: "device-width",
   initialScale: 1,
 };
@@ -61,6 +58,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
+      className="dark"
       suppressHydrationWarning
     >
       <head>
@@ -71,11 +69,12 @@ export default function RootLayout({
           rel="stylesheet"
         />
       </head>
-      <body className="antialiased min-h-screen flex flex-col justify-between selection:bg-brand selection:text-neutral-950 font-sans">
+      <body className="antialiased min-h-screen flex flex-col justify-between selection:bg-brand selection:text-neutral-950 font-sans bg-[#070709] text-[#eaecea]">
         <ThemeProvider
           attribute="class"
           defaultTheme="dark"
-          enableSystem
+          forcedTheme="dark"
+          enableSystem={false}
           disableTransitionOnChange
         >
           <Preloader />
