@@ -1,4 +1,4 @@
-export interface ProjectResult {
+﻿export interface ProjectResult {
   metric: string;
   label: string;
 }
@@ -10,6 +10,7 @@ export interface Project {
   client: string;
   category: "Web & Digital" | "UI/UX & Product" | "AI Video Production" | "Full Studio Sprint";
   industry: string;
+  role?: string;
   year: string;
   featured: boolean;
   thumbnail: string;
@@ -42,12 +43,82 @@ export interface Project {
 
 export const projects: Project[] = [
   {
+    slug: "smith-associates-real-estate",
+    title: "Smith & Associates",
+    subtitle: "Luxury Real Estate Website Design",
+    client: "Smith & Associates Real Estate",
+    category: "Web & Digital",
+    industry: "Real Estate",
+    role: "WordPress Website Designer",
+    year: "2025",
+    featured: true,
+    thumbnail: "/images/projects/smith-associates/hero.png",
+    heroImage: "/images/projects/smith-associates/hero.png",
+    gallery: [
+      "/images/projects/smith-associates/hero.png",
+      "/images/projects/smith-associates/developments.png",
+      "/images/projects/smith-associates/testimonial.png",
+    ],
+    liveUrl: "https://www.smithandassociates.com/",
+    description:
+      "A professional real estate website designed in WordPress for Smith & Associates Real Estate. The website combines a premium visual presentation with real estate functionality, allowing visitors to explore properties, featured listings, new developments, neighborhoods and real estate services.",
+    services: [
+      "WordPress Website Design",
+      "Real Estate Website Design",
+      "Responsive Web Design",
+      "Real Estate Functionality",
+      "User Experience Design",
+    ],
+    platforms: ["WordPress", "PHP", "JavaScript", "HTML5", "CSS3"],
+    tools: ["WordPress", "Figma", "Photoshop", "Custom Real Estate Framework"],
+    challenge:
+      "Smith & Associates needed a sophisticated digital portal to represent Tampa Bay's luxury market, requiring clear property discovery, intuitive navigation across premier neighborhoods, and dedicated spaces for top-tier developments without cluttering the user journey.",
+    approach:
+      "The website was designed around property discovery and visual presentation. Large property imagery, structured listing sections and clear navigation help visitors explore homes, developments, neighborhoods and real estate services within a polished digital experience.",
+    solution:
+      "Designed the website in WordPress and implemented the required real estate functionality to create a property focused experience for buyers, sellers and visitors.",
+    designProcess: [
+      "Property Listings & Real Estate Functionality",
+      "Featured Property Listings & Grid Showcase",
+      "New Development & Exclusive Tower Listings",
+      "Luxury Property Collection & Architecture",
+      "Neighborhood & Coastal Community Exploration",
+      "Real Estate Agent & Advisory Sections",
+      "Property Focused Content Structure & Flow",
+      "Responsive Website Design for All Devices",
+    ],
+    developmentProcess: [
+      "WordPress theme implementation & customization",
+      "Responsive layout engineering across desktop, tablet & mobile",
+      "Structured property listing hierarchy & quick inquiry triggers",
+      "Performance and image asset optimization for smooth browsing",
+    ],
+    beforeAfter: {
+      beforeText: "Fragmented property discovery with basic templates and disjointed neighborhood navigation.",
+      afterText: "High-end luxury real estate digital experience with seamless listing navigation and developer showcases.",
+      beforeMetric: "Standard Brokerage Site",
+      afterMetric: "Premier Luxury Destination",
+    },
+    results: [
+      { metric: "100%", label: "Responsive Property Discovery" },
+      { metric: "Tampa Bay", label: "Regional Luxury Reach" },
+      { metric: "WordPress", label: "Tailored Real Estate CMS" },
+    ],
+    testimonial: {
+      quote:
+        "Highly reliable and professional. The team went out of their way to make sure all listing, showings, and settlement went smoothly. Can't thank them enough.",
+      author: "Gerard C.",
+      role: "Client, St. Petersburg, FL",
+    },
+  },
+  {
     slug: "synthetix-ai-platform",
     title: "Synthetix AI",
     subtitle: "Enterprise Next-Gen Neural Workflow Studio",
     client: "Synthetix Inc.",
     category: "Web & Digital",
     industry: "Artificial Intelligence & SaaS",
+    role: "Lead Digital Designer & Web Architect",
     year: "2026",
     featured: true,
     thumbnail: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=1200&q=80",
@@ -105,6 +176,7 @@ export const projects: Project[] = [
     client: "Aura Timepieces",
     category: "Full Studio Sprint",
     industry: "Luxury Goods & E-Commerce",
+    role: "E-Commerce Architect & AI Video Producer",
     year: "2025",
     featured: true,
     thumbnail: "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=1200&q=80",
@@ -144,6 +216,7 @@ export const projects: Project[] = [
     client: "Loom Technologies",
     category: "UI/UX & Product",
     industry: "FinTech & Web3",
+    role: "Lead UI/UX Product Designer",
     year: "2026",
     featured: true,
     thumbnail: "https://images.unsplash.com/photo-1559526324-4b87b5e36e44?auto=format&fit=crop&w=1200&q=80",
@@ -183,6 +256,7 @@ export const projects: Project[] = [
     client: "Nexus Games Studio",
     category: "AI Video Production",
     industry: "Gaming & Entertainment",
+    role: "AI Video Director & Motion Designer",
     year: "2025",
     featured: true,
     thumbnail: "https://images.unsplash.com/photo-1538481199705-c710c4e965fc?auto=format&fit=crop&w=1200&q=80",
@@ -222,6 +296,7 @@ export const projects: Project[] = [
     client: "Aerovox Systems",
     category: "Web & Digital",
     industry: "CleanTech & Industrial Sustainability",
+    role: "Website Redesign & SEO Lead",
     year: "2026",
     featured: true,
     thumbnail: "https://images.unsplash.com/photo-1497435334941-8c899ee9e8e9?auto=format&fit=crop&w=1200&q=80",
@@ -261,6 +336,7 @@ export const projects: Project[] = [
     client: "Kroma Collective",
     category: "Web & Digital",
     industry: "Architecture & Spatial Design",
+    role: "Web Design & Motion Developer",
     year: "2025",
     featured: true,
     thumbnail: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=80",

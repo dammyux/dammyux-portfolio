@@ -1,8 +1,9 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
 import { projects } from "@/content/projects";
+import { Button } from "@/components/ui/Button";
 import {
   ArrowLeft,
   ArrowRight,
@@ -32,13 +33,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   }
 
   return {
-    title: `${project.title} — Case Study`,
+    title: `${project.title} — ${project.subtitle}`,
     description: project.description,
-    // As per requirement in Section 21 / 30: Case study pages should be noindex
-    robots: {
-      index: false,
-      follow: false,
-    },
   };
 }
 
@@ -82,6 +78,21 @@ export default async function ProjectDetailPage({ params }: Props) {
           <p className="text-lg sm:text-xl text-neutral-600 dark:text-neutral-300 font-normal leading-relaxed">
             {project.subtitle}
           </p>
+
+          {project.liveUrl && (
+            <div className="pt-2">
+              <Button
+                href={project.liveUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                variant="brandGlow"
+                size="md"
+                icon={<ExternalLink className="w-4 h-4" />}
+              >
+                View Live Website
+              </Button>
+            </div>
+          )}
         </div>
 
         {/* Project Meta Details Matrix */}
@@ -97,19 +108,19 @@ export default async function ProjectDetailPage({ params }: Props) {
 
           <div>
             <span className="block text-xs font-mono uppercase text-neutral-400">
-              Services
+              My Role
             </span>
             <span className="text-sm sm:text-base font-bold text-neutral-900 dark:text-white">
-              {project.services.slice(0, 2).join(", ")}
+              {project.role || "Lead Digital Designer"}
             </span>
           </div>
 
           <div>
             <span className="block text-xs font-mono uppercase text-neutral-400">
-              Timeline / Year
+              Services
             </span>
             <span className="text-sm sm:text-base font-bold text-neutral-900 dark:text-white">
-              {project.year}
+              {project.services.slice(0, 2).join(", ")}
             </span>
           </div>
 
@@ -153,7 +164,7 @@ export default async function ProjectDetailPage({ params }: Props) {
         {/* Overview */}
         <div className="space-y-4">
           <h2 className="text-xs font-mono uppercase tracking-widest text-brand font-semibold">
-            01 · Overview
+            01 · Project Overview
           </h2>
           <p className="text-lg sm:text-xl text-neutral-700 dark:text-neutral-200 leading-relaxed">
             {project.description}
@@ -177,7 +188,7 @@ export default async function ProjectDetailPage({ params }: Props) {
           {project.approach && (
             <div className="p-8 rounded-3xl border border-neutral-200/80 dark:border-white/[0.08] bg-white dark:bg-neutral-900/40 space-y-3">
               <h2 className="text-xs font-mono uppercase tracking-widest text-brand font-semibold">
-                03 · Our Approach
+                03 · Design Approach
               </h2>
               <p className="text-sm sm:text-base text-neutral-600 dark:text-neutral-300 leading-relaxed">
                 {project.approach}
@@ -201,7 +212,7 @@ export default async function ProjectDetailPage({ params }: Props) {
         {project.designProcess && project.designProcess.length > 0 && (
           <div className="space-y-4">
             <h2 className="text-xs font-mono uppercase tracking-widest text-brand font-semibold">
-              05 · Design &amp; Architecture Highlights
+              05 · Project Features &amp; Architecture Highlights
             </h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
               {project.designProcess.map((step, idx) => (
@@ -267,7 +278,7 @@ export default async function ProjectDetailPage({ params }: Props) {
             {project.gallery.map((img, idx) => (
               <div
                 key={idx}
-                className="relative aspect-[16/10] rounded-3xl overflow-hidden border border-neutral-200/80 dark:border-white/[0.08] bg-neutral-950"
+                className="relative aspect-[16/10] rounded-3xl overflow-hidden border border-neutral-200/80 dark:border-white/[0.08] bg-neutral-950 shadow-lg"
               >
                 <Image
                   src={img}
@@ -324,7 +335,33 @@ export default async function ProjectDetailPage({ params }: Props) {
         </section>
       )}
 
-      {/* 8. Next Project Navigation Link */}
+      {/* 8. Live Website CTA Section */}
+      {project.liveUrl && (
+        <section className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <div className="p-8 sm:p-12 rounded-3xl border border-white/[0.08] bg-neutral-900/50 space-y-4">
+            <h3 className="text-2xl sm:text-3xl font-bold text-white">
+              Experience {project.title} Live
+            </h3>
+            <p className="text-sm sm:text-base text-neutral-400 max-w-xl mx-auto">
+              Explore the live property listings, new developments, and responsive experience in action.
+            </p>
+            <div className="pt-2 flex justify-center">
+              <Button
+                href={project.liveUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                variant="brandGlow"
+                size="lg"
+                icon={<ExternalLink className="w-4 h-4" />}
+              >
+                View Live Website
+              </Button>
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* 9. Next Project Navigation Link */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 border-t border-neutral-200/80 dark:border-white/[0.08]">
         <Link
           href={`/work/${nextProject.slug}`}
