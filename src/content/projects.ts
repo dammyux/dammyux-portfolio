@@ -1,4 +1,4 @@
-﻿export interface ProjectResult {
+export interface ProjectResult {
   metric: string;
   label: string;
 }
@@ -52,12 +52,13 @@ export const projects: Project[] = [
     role: "WordPress Website Designer",
     year: "2025",
     featured: true,
-    thumbnail: "/images/projects/smith-associates/hero.png",
-    heroImage: "/images/projects/smith-associates/hero.png",
+    thumbnail: "/images/projects/smith-associates/smith-card-v2.png",
+    heroImage: "/images/projects/smith-associates/smith-hero-v2.png",
     gallery: [
-      "/images/projects/smith-associates/hero.png",
+      "/images/projects/smith-associates/smith-hero-v2.png",
       "/images/projects/smith-associates/developments.png",
       "/images/projects/smith-associates/testimonial.png",
+      "/images/projects/smith-associates/fullpage.png",
     ],
     liveUrl: "https://www.smithandassociates.com/",
     description:
