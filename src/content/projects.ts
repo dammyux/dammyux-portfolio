@@ -1,4 +1,4 @@
-export interface ProjectResult {
+﻿export interface ProjectResult {
   metric: string;
   label: string;
 }
@@ -42,6 +42,76 @@ export interface Project {
 }
 
 export const projects: Project[] = [
+  {
+    slug: "inkblock-media",
+    title: "InkBlock Media",
+    subtitle: "Content Writing & SEO Website",
+    client: "InkBlock Media",
+    category: "Web & Digital",
+    industry: "Content Writing & SEO",
+    role: "Wix Website Designer",
+    year: "2025",
+    featured: true,
+    thumbnail: "/images/projects/inkblock-media/hero.png",
+    heroImage: "/images/projects/inkblock-media/hero.png",
+    gallery: [
+      "/images/projects/inkblock-media/hero.png",
+      "/images/projects/inkblock-media/services.png",
+      "/images/projects/inkblock-media/cta.png",
+      "/images/projects/inkblock-media/testimonial.png",
+    ],
+    liveUrl: "https://timmydigitals.wixsite.com/my-site-13",
+    description:
+      "A professional Wix website designed for InkBlock Media, a content writing and SEO service business. The website presents the company's writing services, SEO content solutions and professional approach through a clean service focused layout designed to help visitors understand the available services and get in touch.",
+    services: [
+      "Wix Website Design",
+      "Website Design",
+      "Responsive Web Design",
+      "Service Website Design",
+      "User Experience Design",
+    ],
+    platforms: ["Wix Studio", "JavaScript", "HTML5", "CSS3"],
+    tools: ["Wix", "Figma", "Photoshop"],
+    challenge:
+      "Structuring diverse digital content writing services—ranging from website copywriting and press releases to technical SEO and Web3 content—into a clean, intuitive layout that clearly communicates value and drives consultation inquiries.",
+    approach:
+      "The design combines a strong purple visual identity with structured content sections, clear service descriptions and focused calls to action. The layout was created to make the company's services easy to understand while giving the website a professional and approachable appearance.",
+    solution:
+      "Designed the InkBlock Media website in Wix with a clear service focused structure for presenting content writing, SEO and digital writing services.",
+    designProcess: [
+      "Content Writing Services Architecture",
+      "SEO & High-Converting Copywriting Modules",
+      "Website & Blog Writing Showcase",
+      "Professional Service Presentations",
+      "About & Philosophy Section",
+      "Client Testimonials Carousel",
+      "Consultation Inquiry & Lead Capture Form",
+      "Responsive Mobile & Tablet Optimization",
+    ],
+    developmentProcess: [
+      "Wix Studio template customization & responsive breakpoint tuning",
+      "Brand-aligned purple accent typography & high-contrast button styling",
+      "Smooth interactive service accordions & testimonial carousels",
+      "Technical on-page SEO metadata and fast loading optimization",
+    ],
+    beforeAfter: {
+      beforeText: "Scattered service descriptions with no unified brand identity or structured lead capture.",
+      afterText: "Polished, cohesive Wix digital flagship with clear service tiers and direct quote booking.",
+      beforeMetric: "Basic Freelance Presence",
+      afterMetric: "Professional Agency Platform",
+    },
+    results: [
+      { metric: "100%", label: "Responsive Layout Across All Devices" },
+      { metric: "Wix", label: "Service-Focused CMS Platform" },
+      { metric: "100+", label: "Businesses Served by InkBlock" },
+    ],
+    testimonial: {
+      quote:
+        "Working with this writer has been a game changer for my business. Every piece of content delivered was clear, engaging, and perfectly aligned with my brand voice. The communication was smooth, the delivery was fast, and the quality exceeded my expectations.",
+      author: "Sarah Mitchell",
+      role: "Client, InkBlock Media",
+    },
+  },
   {
     slug: "smith-associates-real-estate",
     title: "Smith & Associates",
