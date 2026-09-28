@@ -1,4 +1,4 @@
-﻿export interface ProjectResult {
+export interface ProjectResult {
   metric: string;
   label: string;
 }
