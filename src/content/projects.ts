@@ -43,6 +43,78 @@ export interface Project {
 
 export const projects: Project[] = [
   {
+    slug: "vertroue-caregivers",
+    title: "Vertroue Caregivers",
+    subtitle: "Non-Medical Home Care & Family Support Website",
+    client: "Vertroue Caregivers",
+    category: "Web & Digital",
+    industry: "Healthcare & Home Care",
+    role: "Wix Website Designer & UX Specialist",
+    year: "2025",
+    featured: true,
+    thumbnail: "/images/projects/vertroue-caregivers/hero.jpg",
+    heroImage: "/images/projects/vertroue-caregivers/hero.jpg",
+    gallery: [
+      "/images/projects/vertroue-caregivers/hero.jpg",
+      "/images/projects/vertroue-caregivers/services-personal-care.jpg",
+      "/images/projects/vertroue-caregivers/about-page.jpg",
+      "/images/projects/vertroue-caregivers/companionship-page.jpg",
+      "/images/projects/vertroue-caregivers/contact-page.jpg",
+      "/images/projects/vertroue-caregivers/mobile-preview.jpg",
+    ],
+    liveUrl: "https://www.vertrouecaregivers.com/",
+    description:
+      "A compassionate, high-trust healthcare website designed in Wix for Vertroue Caregivers, a licensed Pennsylvania non-medical home care agency. The platform provides families across Philadelphia and surrounding suburbs with transparent care service tiers, caregiver vetting standards, and direct consultation booking.",
+    services: [
+      "Wix Website Design",
+      "Healthcare UX Design",
+      "Information Architecture",
+      "Responsive Web Design",
+      "Content Strategy & FAQ",
+    ],
+    platforms: ["Wix", "JavaScript", "HTML5", "CSS3"],
+    tools: ["Wix Studio", "Figma", "Photoshop"],
+    challenge:
+      "Families seeking in-home care for elderly relatives or recovering loved ones face emotional stress, complex terminology, and uncertainty around private-pay versus Medicare/Medicaid models. Vertroue Caregivers needed a digital presence that establishes immediate warmth and clinical accountability, demystifies payment options, and makes starting care as simple as a 3-step conversation.",
+    approach:
+      "We developed a patient-centric, empathetic layout utilizing reassuring typography, soft neutral tones, and genuine caregiver imagery. Key service offerings—personal care assistance, companion engagement, and light physical activities—are structured into scannable cards with clear boundaries. A dedicated 3-step onboarding framework and plain-language FAQ eliminate friction for families making urgent care decisions.",
+    solution:
+      "Designed the Vertroue Caregivers platform in Wix with dedicated service detail pages, executive leadership & caregiver licensing verification, straightforward payment guidance (credit cards, check, Apple Pay, Zelle), and persistent direct-call touchpoints connecting families immediately to care coordinators across Philadelphia, Montgomery, Chester, and Bucks counties.",
+    designProcess: [
+      "Compassionate Visual Identity & Accessible Color Contrast",
+      "Information Architecture for Non-Medical In-Home Care Tiers",
+      "Three-Step Family Onboarding Framework (Conversation, Plan, Connection)",
+      "Personal Care Assistance & Medication Reminder Modules",
+      "Senior Companionship & Light Physical Activity Showcase",
+      "Transparent Private-Pay & Multi-County Service Area FAQ",
+      "Caregiver Background Screening & Healthcare Leadership Story",
+      "Mobile-Optimized Emergency Call Triggers & Consultation Booking",
+    ],
+    developmentProcess: [
+      "Wix Studio responsive layout engineering with fluid typography across mobile & desktop",
+      "Dynamic service routing with dedicated breakdown pages for each care discipline",
+      "Interactive FAQ accordion providing instant answers on licensing and payment terms",
+      "Local SEO metadata architecture targeting Philadelphia, Montgomery, Chester, and Bucks counties",
+    ],
+    beforeAfter: {
+      beforeText: "Unstructured care inquiry process with unclear private-pay terms and disconnected service descriptions.",
+      afterText: "Warm, authoritative healthcare platform with transparent service tiers, 3-step intake, and direct phone booking.",
+      beforeMetric: "Basic Care Outreach",
+      afterMetric: "Licensed Home Care Digital Presence",
+    },
+    results: [
+      { metric: "4 Counties", label: "Regional Coverage (Philadelphia, Montgomery, Chester, Bucks)" },
+      { metric: "100%", label: "Screened & Trained Caregiver Model" },
+      { metric: "3-Step", label: "Streamlined Intake & Consultation Process" },
+    ],
+    testimonial: {
+      quote:
+        "At Vertroue Caregivers, we don’t just see clients. We see someone’s mother, father, grandmother, grandfather, or loved one—someone who means the world to their family. And that is a responsibility we take to heart.",
+      author: "Vertroue Caregivers Leadership",
+      role: "Founder & Healthcare Administrator",
+    },
+  },
+  {
     slug: "inkblock-media",
     title: "InkBlock Media",
     subtitle: "Content Writing & SEO Website",
