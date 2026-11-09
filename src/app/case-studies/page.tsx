@@ -34,7 +34,7 @@ export default function CaseStudiesPage() {
                   alt={project.title}
                   fill
                   sizes="(max-width: 1024px) 100vw, 50vw"
-                  className="object-cover object-top transition-[object-position] duration-[5000ms] ease-in-out group-hover:object-bottom will-change-[object-position]"
+                  className="object-cover object-top transition-[object-position] duration-[7000ms] ease-linear group-hover:object-bottom will-change-[object-position]"
                 />
                 <div className="absolute top-4 left-4 z-20">
                   <span className="px-3 py-1 rounded-full text-xs font-mono uppercase tracking-wider bg-black/60 backdrop-blur-md text-white border border-white/10">

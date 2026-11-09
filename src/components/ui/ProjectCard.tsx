@@ -30,7 +30,7 @@ export function ProjectCard({ project, className = "", index = 0 }: ProjectCardP
           alt={project.title}
           fill
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-          className="object-cover object-top transition-[object-position] duration-[5000ms] ease-in-out group-hover:object-bottom will-change-[object-position]"
+          className="object-cover object-top transition-[object-position] duration-[7000ms] ease-linear group-hover:object-bottom will-change-[object-position]"
         />
 
         {/* Gradient Overlay */}
