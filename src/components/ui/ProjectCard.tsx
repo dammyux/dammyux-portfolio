@@ -13,6 +13,8 @@ interface ProjectCardProps {
 }
 
 export function ProjectCard({ project, className = "", index = 0 }: ProjectCardProps) {
+  const imageSrc = project.scrollImage || project.thumbnail;
+
   return (
     <Link
       href={`/work/${project.slug}`}
@@ -21,34 +23,42 @@ export function ProjectCard({ project, className = "", index = 0 }: ProjectCardP
         className
       )}
     >
-      {/* Media Container */}
+      {/* Media Container with Hover to Scroll */}
       <div className="relative aspect-[16/10] w-full overflow-hidden bg-neutral-950">
         <Image
-          src={project.thumbnail}
+          src={imageSrc}
           alt={project.title}
           fill
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-          className="object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105"
+          className="object-cover object-top transition-[object-position] duration-[5000ms] ease-in-out group-hover:object-bottom will-change-[object-position]"
         />
 
         {/* Gradient Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-60 group-hover:opacity-40 transition-opacity duration-500" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent opacity-60 group-hover:opacity-30 transition-opacity duration-500 pointer-events-none z-10" />
 
         {/* Top Badges */}
-        <div className="absolute top-4 left-4 right-4 flex items-center justify-between pointer-events-none">
+        <div className="absolute top-3.5 left-3.5 right-3.5 flex items-center justify-between pointer-events-none z-20">
           <span className="px-3 py-1 rounded-full text-xs font-mono uppercase tracking-wider bg-black/60 backdrop-blur-md text-white border border-white/10">
             {project.industry}
           </span>
-          <span className="px-2.5 py-1 rounded-full text-xs font-mono bg-brand/20 backdrop-blur-md text-brand border border-brand/30">
-            {project.year}
+          <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-medium bg-black/75 backdrop-blur-md text-white/90 border border-white/15 shadow-sm transition-all duration-300 group-hover:border-brand/40">
+            <span className="w-1.5 h-1.5 rounded-full bg-brand animate-pulse" />
+            <span>Hover to scroll</span>
           </span>
         </div>
 
+        {/* Center Floating "Scroll" Circle Badge */}
+        <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-20">
+          <div className="w-16 h-16 rounded-full bg-brand text-neutral-950 font-black text-xs uppercase tracking-wider flex items-center justify-center shadow-[0_10px_30px_-5px_rgba(0,255,135,0.6)] opacity-0 scale-75 group-hover:opacity-100 group-hover:scale-100 transition-all duration-300 ease-out border border-white/20">
+            Scroll
+          </div>
+        </div>
+
         {/* View Project Floating Indicator */}
-        <div className="absolute bottom-4 right-4 translate-y-2 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">
-          <span className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-brand text-neutral-950 text-xs font-bold shadow-lg">
+        <div className="absolute bottom-3.5 right-3.5 translate-y-2 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300 z-20">
+          <span className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-black/80 backdrop-blur-md border border-white/10 text-white text-xs font-semibold shadow-lg">
             <span>View Project</span>
-            <ArrowUpRight className="w-3.5 h-3.5" />
+            <ArrowUpRight className="w-3.5 h-3.5 text-brand" />
           </span>
         </div>
       </div>

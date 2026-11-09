@@ -14,6 +14,7 @@ export interface Project {
   year: string;
   featured: boolean;
   thumbnail: string;
+  scrollImage?: string;
   heroImage: string;
   gallery: string[];
   videoUrl?: string;
@@ -53,6 +54,7 @@ export const projects: Project[] = [
     year: "2025",
     featured: true,
     thumbnail: "/images/projects/diamond-living/hero.jpg",
+    scrollImage: "/images/projects/diamond-living/scroll-preview.jpg",
     heroImage: "/images/projects/diamond-living/hero.jpg",
     gallery: [
       "/images/projects/diamond-living/hero.jpg",
@@ -117,6 +119,7 @@ export const projects: Project[] = [
     year: "2025",
     featured: true,
     thumbnail: "/images/projects/trowell-bookkeeping/hero.jpg",
+    scrollImage: "/images/projects/trowell-bookkeeping/scroll-preview.jpg",
     heroImage: "/images/projects/trowell-bookkeeping/hero.jpg",
     gallery: [
       "/images/projects/trowell-bookkeeping/hero.jpg",
@@ -180,6 +183,7 @@ export const projects: Project[] = [
     year: "2025",
     featured: true,
     thumbnail: "/images/projects/jennette-miller/hero.jpg",
+    scrollImage: "/images/projects/jennette-miller/scroll-preview.jpg",
     heroImage: "/images/projects/jennette-miller/hero.jpg",
     gallery: [
       "/images/projects/jennette-miller/hero.jpg",
@@ -243,6 +247,7 @@ export const projects: Project[] = [
     year: "2025",
     featured: true,
     thumbnail: "/images/projects/matriarch-home-services/hero.jpg",
+    scrollImage: "/images/projects/matriarch-home-services/scroll-preview.jpg",
     heroImage: "/images/projects/matriarch-home-services/hero.jpg",
     gallery: [
       "/images/projects/matriarch-home-services/hero.jpg",
@@ -306,6 +311,7 @@ export const projects: Project[] = [
     year: "2025",
     featured: true,
     thumbnail: "/images/projects/purpose-wellness/hero.jpg",
+    scrollImage: "/images/projects/purpose-wellness/scroll-preview.jpg",
     heroImage: "/images/projects/purpose-wellness/hero.jpg",
     gallery: [
       "/images/projects/purpose-wellness/hero.jpg",
@@ -369,6 +375,7 @@ export const projects: Project[] = [
     year: "2025",
     featured: true,
     thumbnail: "/images/projects/vertroue-caregivers/hero.jpg",
+    scrollImage: "/images/projects/vertroue-caregivers/scroll-preview.jpg",
     heroImage: "/images/projects/vertroue-caregivers/hero.jpg",
     gallery: [
       "/images/projects/vertroue-caregivers/hero.jpg",
@@ -441,6 +448,7 @@ export const projects: Project[] = [
     year: "2025",
     featured: true,
     thumbnail: "/images/projects/inkblock-media/hero.png",
+    scrollImage: "/images/projects/inkblock-media/scroll-preview.jpg",
     heroImage: "/images/projects/inkblock-media/hero.png",
     gallery: [
       "/images/projects/inkblock-media/hero.png",
@@ -511,6 +519,7 @@ export const projects: Project[] = [
     year: "2025",
     featured: true,
     thumbnail: "/images/projects/smith-associates/smith-card-v2.png",
+    scrollImage: "/images/projects/smith-associates/scroll-preview.jpg",
     heroImage: "/images/projects/smith-associates/smith-hero-v2.png",
     gallery: [
       "/images/projects/smith-associates/smith-hero-v2.png",

@@ -27,19 +27,31 @@ export default function CaseStudiesPage() {
               key={project.slug}
               className="p-8 sm:p-12 rounded-3xl border border-neutral-200/80 dark:border-white/[0.08] bg-white dark:bg-neutral-900/50 hover:border-brand/40 transition-all duration-300 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center group"
             >
-              {/* Media Preview */}
+              {/* Media Preview with Hover to Scroll */}
               <div className="lg:col-span-6 relative aspect-[16/10] rounded-2xl overflow-hidden bg-neutral-950">
                 <Image
-                  src={project.thumbnail}
+                  src={project.scrollImage || project.thumbnail}
                   alt={project.title}
                   fill
                   sizes="(max-width: 1024px) 100vw, 50vw"
-                  className="object-cover group-hover:scale-105 transition-transform duration-700"
+                  className="object-cover object-top transition-[object-position] duration-[5000ms] ease-in-out group-hover:object-bottom will-change-[object-position]"
                 />
-                <div className="absolute top-4 left-4">
+                <div className="absolute top-4 left-4 z-20">
                   <span className="px-3 py-1 rounded-full text-xs font-mono uppercase tracking-wider bg-black/60 backdrop-blur-md text-white border border-white/10">
                     {project.industry}
                   </span>
+                </div>
+                <div className="absolute top-4 right-4 z-20 pointer-events-none">
+                  <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-medium bg-black/75 backdrop-blur-md text-white/90 border border-white/15 shadow-sm">
+                    <span className="w-1.5 h-1.5 rounded-full bg-brand animate-pulse" />
+                    <span>Hover to scroll</span>
+                  </span>
+                </div>
+                {/* Center Floating "Scroll" Circle Badge */}
+                <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-20">
+                  <div className="w-16 h-16 rounded-full bg-brand text-neutral-950 font-black text-xs uppercase tracking-wider flex items-center justify-center shadow-[0_10px_30px_-5px_rgba(0,255,135,0.6)] opacity-0 scale-75 group-hover:opacity-100 group-hover:scale-100 transition-all duration-300 ease-out border border-white/20">
+                    Scroll
+                  </div>
                 </div>
               </div>
 
