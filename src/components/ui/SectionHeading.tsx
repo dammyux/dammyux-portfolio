@@ -2,7 +2,7 @@ import { ReactNode } from "react";
 
 interface SectionHeadingProps {
   badge?: string;
-  title: string;
+  title: string | ReactNode;
   subtitle?: string | ReactNode;
   align?: "left" | "center" | "right";
   className?: string;

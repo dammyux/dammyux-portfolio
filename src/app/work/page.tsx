@@ -15,7 +15,11 @@ export default function WorkPage() {
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
         <SectionHeading
           badge="Selected Portfolio"
-          title="Engineered Digital Craft"
+          title={
+            <>
+              Engineered <span className="italic font-normal text-brand">Digital Craft</span>
+            </>
+          }
           subtitle="Explore our curated catalog of custom web flagships, SaaS product interfaces, and cinematic AI video campaigns."
         />
 

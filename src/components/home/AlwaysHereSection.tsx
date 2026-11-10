@@ -40,7 +40,11 @@ export function AlwaysHereSection() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeading
           badge="Signature Capabilities"
-          title="Always Here When You Need It"
+          title={
+            <>
+              Always Here <span className="italic font-normal text-brand">When You Need It</span>
+            </>
+          }
           subtitle="From concept to high-scale execution, explore the eight core disciplines engineered to elevate your brand."
           align="left"
           className="mb-12"

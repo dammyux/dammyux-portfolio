@@ -74,11 +74,11 @@ export default function RootLayout({
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link
-          href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&family=Inter:wght@300;400;500;600;700;800&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:ital,opsz,wght@0,12..96,200..800;1,12..96,200..800&family=Inter:ital,wght@0,300..800;1,300..800&display=swap"
           rel="stylesheet"
         />
       </head>
-      <body className="antialiased min-h-screen flex flex-col justify-between selection:bg-brand selection:text-neutral-950 font-sans bg-[#070709] text-[#eaecea]">
+      <body className="antialiased min-h-screen flex flex-col justify-between selection:bg-brand selection:text-neutral-950 font-sans bg-[#070709] text-[#eaecea] overflow-x-hidden">
         <ThemeProvider
           attribute="class"
           defaultTheme="dark"
@@ -88,7 +88,7 @@ export default function RootLayout({
         >
           <Preloader />
           <Navbar />
-          <main className="flex-grow">{children}</main>
+          <main className="flex-grow w-full max-w-full overflow-x-hidden">{children}</main>
           <Footer />
         </ThemeProvider>
       </body>

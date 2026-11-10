@@ -19,9 +19,9 @@ export function FinalCTASection() {
         </div>
 
         {/* Big Editorial Headline */}
-        <h2 className="text-4xl sm:text-6xl lg:text-7xl font-black tracking-tight leading-[1.05] uppercase">
+        <h2 className="text-4xl sm:text-6xl lg:text-7xl font-black tracking-tight leading-[1.05] break-words">
           Ready to Build <br />
-          <span className="text-gradient-green">Something Remarkable?</span>
+          <span className="text-gradient-green italic font-normal">Something Remarkable?</span>
         </h2>
 
         {/* Supporting description */}

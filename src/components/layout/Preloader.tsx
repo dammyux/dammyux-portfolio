@@ -23,11 +23,11 @@ export function Preloader() {
       return;
     }
 
-    // Fast discrete progression: 0% -> 25% -> 60% -> 100%
+    // Dynamic, fast journey progression
     const steps = [
-      { value: 25, delay: 180 },
-      { value: 60, delay: 380 },
-      { value: 100, delay: 650 },
+      { value: 32, delay: 120 },
+      { value: 68, delay: 260 },
+      { value: 100, delay: 440 },
     ];
 
     const timers: NodeJS.Timeout[] = [];
@@ -42,7 +42,7 @@ export function Preloader() {
     const finishTimer = setTimeout(() => {
       sessionStorage.setItem("dammyux_preloaded", "true");
       setLoading(false);
-    }, 900);
+    }, 620);
     timers.push(finishTimer);
 
     return () => {
@@ -50,52 +50,75 @@ export function Preloader() {
     };
   }, []);
 
+  // Journey milestones
+  const journeyStatus =
+    progress < 35
+      ? "Curating digital flagships..."
+      : progress < 75
+      ? "Engineering interactive craft..."
+      : progress < 100
+      ? "Assembling design matrix..."
+      : "Welcome to DammyUX";
+
   return (
     <AnimatePresence>
       {loading && (
         <motion.div
           key="preloader"
           initial={{ opacity: 1 }}
-          exit={{ opacity: 0, y: -20 }}
-          transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
-          className="fixed inset-0 z-50 flex flex-col items-center justify-center bg-[#070709] text-white"
+          exit={{ opacity: 0, y: -24, filter: "blur(8px)" }}
+          transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
+          className="fixed inset-0 z-50 flex flex-col items-center justify-center bg-[#070709] text-white select-none"
         >
           {/* Subtle background ambient glow */}
-          <div className="absolute w-72 h-72 rounded-full bg-brand/10 blur-[100px] pointer-events-none" />
+          <div className="absolute w-96 h-96 rounded-full bg-brand/15 blur-[120px] pointer-events-none animate-pulse-glow" />
 
-          <div className="relative flex flex-col items-center gap-6">
-            {/* Logo */}
+          <div className="relative flex flex-col items-center gap-7 px-4">
+            {/* Prominent, Professional Logo with Brand Aura */}
             <motion.div
-              initial={{ opacity: 0, scale: 0.95 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.3 }}
-              className="flex items-center gap-2"
+              initial={{ opacity: 0, scale: 0.92, y: 10 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              transition={{ duration: 0.4, ease: "easeOut" }}
+              className="relative flex items-center justify-center"
             >
               <Image
-                src="/images/dammyux-logo.jpg"
+                src="/images/dammyux-logo.png"
                 alt="DAMMYUX"
-                width={150}
-                height={55}
+                width={280}
+                height={102}
                 priority
-                className="h-10 w-auto object-contain"
+                className="h-16 sm:h-20 w-auto object-contain drop-shadow-[0_0_35px_rgba(0,255,135,0.4)]"
               />
             </motion.div>
 
-            {/* Counter */}
-            <div className="flex items-baseline gap-1 font-mono text-xs tracking-widest text-neutral-400">
-              <span className="text-sm font-semibold text-white">
-                {String(progress).padStart(2, "0")}
-              </span>
-              <span className="text-brand">%</span>
-            </div>
+            {/* Journey Milestone Status */}
+            <motion.div
+              key={journeyStatus}
+              initial={{ opacity: 0, y: 4 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.2 }}
+              className="text-xs sm:text-[13px] font-mono tracking-wide text-neutral-400 font-medium"
+            >
+              {journeyStatus}
+            </motion.div>
 
-            {/* Minimal Progress Line */}
-            <div className="w-32 h-[2px] bg-neutral-800 rounded-full overflow-hidden">
-              <motion.div
-                className="h-full bg-gradient-to-r from-brand to-emerald-400"
-                style={{ width: `${progress}%` }}
-                transition={{ ease: "easeInOut", duration: 0.2 }}
-              />
+            {/* Luminous Journey Path Indicator */}
+            <div className="flex flex-col items-center gap-2">
+              <div className="w-60 sm:w-72 h-[3px] bg-white/[0.08] rounded-full relative overflow-hidden backdrop-blur-sm border border-white/5">
+                {/* Flowing Energy Line */}
+                <motion.div
+                  className="h-full bg-gradient-to-r from-emerald-500/20 via-brand to-emerald-300 relative rounded-full"
+                  style={{ width: `${progress}%` }}
+                  transition={{ ease: "easeInOut", duration: 0.25 }}
+                />
+              </div>
+
+              {/* Counter percentage */}
+              <div className="flex items-baseline gap-1 font-mono text-[11px] tracking-widest text-neutral-500">
+                <span className="text-white font-semibold">{String(progress).padStart(2, "0")}</span>
+                <span className="text-brand font-bold">%</span>
+              </div>
             </div>
           </div>
         </motion.div>

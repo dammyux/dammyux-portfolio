@@ -8,13 +8,18 @@ export function SelectedWorkSection() {
   const featuredProjects = projects.filter((p) => p.featured).slice(0, 6);
 
   return (
-    <section className="py-24 relative overflow-hidden bg-neutral-100/60 dark:bg-black/40 border-y border-neutral-200/60 dark:border-white/[0.06]">
+    <section className="py-20 sm:py-28 relative bg-neutral-100/60 dark:bg-black/40 border-y border-neutral-200/60 dark:border-white/[0.06]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-14">
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-12 sm:pb-16">
           <SectionHeading
             badge="Selected Work"
-            title="Featured Projects &amp; Digital Flagships"
+            title={
+              <>
+                Featured Projects &amp;{" "}
+                <span className="italic font-normal text-brand">Digital Flagships</span>
+              </>
+            }
             subtitle="A curated showcase of bespoke websites, UI/UX systems, and high-converting platforms engineered for high-growth businesses."
           />
           <Button
@@ -28,10 +33,15 @@ export function SelectedWorkSection() {
           </Button>
         </div>
 
-        {/* Featured Projects Showcase List */}
-        <div className="flex flex-col gap-10 sm:gap-14">
+        {/* Stacked Overlapping Cards Deck */}
+        <div className="relative flex flex-col gap-6 sm:gap-10 pb-12">
           {featuredProjects.map((project, idx) => (
-            <FeaturedProjectCard key={project.slug} project={project} index={idx} />
+            <FeaturedProjectCard
+              key={project.slug}
+              project={project}
+              index={idx}
+              totalCount={featuredProjects.length}
+            />
           ))}
         </div>
       </div>

@@ -65,7 +65,11 @@ export function TestimonialMarquee() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-14 text-center">
         <SectionHeading
           badge="Client Testimonials"
-          title="What Clients Say"
+          title={
+            <>
+              What Clients <span className="italic font-normal text-brand">Say</span>
+            </>
+          }
           subtitle="Real feedback from founders, executives, and marketing leaders worldwide."
           align="center"
         />

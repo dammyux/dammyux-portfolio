@@ -22,10 +22,12 @@ export function HeroSection() {
               <span>{siteConfig.availability}</span>
             </div>
 
-            {/* Main Headline with Poppins 48px Reference */}
-            <h1 className="text-3xl sm:text-4xl md:text-[48px] md:leading-[48px] font-bold font-display tracking-tight text-neutral-900 dark:text-[#eaecea] uppercase">
+            {/* Main Headline with Editorial Italic Touch */}
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-[56px] font-extrabold font-display tracking-tight text-neutral-900 dark:text-[#eaecea] leading-[1.12] break-words">
               Digital Studio <br />
-              <span className="text-gradient-green">&amp; Web Architect</span>
+              <span className="text-gradient-green italic font-normal">
+                &amp; Web Architect
+              </span>
             </h1>
 
             {/* Short Bio / Description with Inter 14px / 20px Reference */}
@@ -56,7 +58,7 @@ export function HeroSection() {
             </div>
 
             {/* Quick Metrics Bar */}
-            <div className="grid grid-cols-3 gap-6 sm:gap-10 pt-8 mt-2 border-t border-neutral-200/80 dark:border-white/[0.08] w-full max-w-lg">
+            <div className="grid grid-cols-3 gap-3 sm:gap-8 pt-6 sm:pt-8 mt-2 border-t border-neutral-200/80 dark:border-white/[0.08] w-full max-w-lg">
               <div>
                 <span className="block text-2xl sm:text-3xl font-black text-neutral-900 dark:text-white tracking-tight font-display">
                   {aboutContent.yearsOfExperience}

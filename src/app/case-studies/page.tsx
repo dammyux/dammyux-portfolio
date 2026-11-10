@@ -17,7 +17,12 @@ export default function CaseStudiesPage() {
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
         <SectionHeading
           badge="In-Depth Analyses"
-          title="Case Studies &amp; Client Transformations"
+          title={
+            <>
+              Case Studies &amp;{" "}
+              <span className="italic font-normal text-brand">Client Transformations</span>
+            </>
+          }
           subtitle="Explore the strategy, technical engineering, and data-backed outcomes behind our most impactful client deliverables."
         />
 

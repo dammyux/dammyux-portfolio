@@ -19,15 +19,15 @@ export function Footer() {
           <div className="md:col-span-4 space-y-4">
             <Link
               href="/"
-              className="inline-flex items-center gap-2"
-              aria-label="DAMMYUX Home"
+              className="inline-flex items-center gap-2 cursor-pointer group"
+              aria-label="DAMMYUX Homepage"
             >
               <Image
-                src="/images/dammyux-logo.jpg"
+                src="/images/dammyux-logo.png"
                 alt="DAMMYUX"
-                width={160}
-                height={58}
-                className="h-10 w-auto object-contain"
+                width={220}
+                height={80}
+                className="h-12 sm:h-14 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
               />
             </Link>
             <p className="text-sm text-neutral-600 dark:text-neutral-400 max-w-sm leading-relaxed">

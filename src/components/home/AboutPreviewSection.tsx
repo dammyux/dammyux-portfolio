@@ -18,7 +18,12 @@ export function AboutPreviewSection() {
           <div className="lg:col-span-7 space-y-6 text-left">
             <SectionHeading
               badge="Behind the Studio"
-              title="Architecting digital craft with business purpose."
+              title={
+                <>
+                  Architecting digital craft with{" "}
+                  <span className="italic font-normal text-brand">business purpose.</span>
+                </>
+              }
               subtitle={aboutContent.shortBio}
             />
 

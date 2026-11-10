@@ -38,13 +38,15 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
           >
             {/* Header */}
             <div className="flex items-center justify-between pb-6 border-b border-white/[0.08]">
-              <Image
-                src="/images/dammyux-logo.jpg"
-                alt="DAMMYUX"
-                width={130}
-                height={48}
-                className="h-8 w-auto object-contain"
-              />
+              <Link href="/" onClick={onClose} className="cursor-pointer" aria-label="DAMMYUX Homepage">
+                <Image
+                  src="/images/dammyux-logo.png"
+                  alt="DAMMYUX"
+                  width={160}
+                  height={58}
+                  className="h-10 w-auto object-contain"
+                />
+              </Link>
               <button
                 onClick={onClose}
                 aria-label="Close navigation menu"

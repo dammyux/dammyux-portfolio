@@ -1,6 +1,6 @@
 ﻿"use client";
 
-import { useState } from "react";
+import { useState, ReactNode } from "react";
 import { websitePricing, aiVideoPricing } from "@/content/pricing";
 import { PricingCard } from "@/components/ui/PricingCard";
 import { SectionHeading } from "@/components/ui/SectionHeading";
@@ -9,14 +9,19 @@ import { motion, AnimatePresence } from "framer-motion";
 
 interface PriceRevealSectionProps {
   badge?: string;
-  title?: string;
+  title?: ReactNode;
   subtitle?: string;
   className?: string;
 }
 
 export function PriceRevealSection({
   badge = "Investment & Packages",
-  title = "Simple Pricing. Clear Starting Points.",
+  title = (
+    <>
+      Simple Pricing.{" "}
+      <span className="italic font-normal text-brand">Clear Starting Points.</span>
+    </>
+  ),
   subtitle = "Transparent, value-driven rates with zero hidden fees. Click any package below to reveal full deliverables and timeline.",
   className = "",
 }: PriceRevealSectionProps) {

@@ -9,7 +9,11 @@ export function DisciplinesSection() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeading
           badge="Disciplines &amp; Toolkits"
-          title="Two Disciplines. Zero Compromise."
+          title={
+            <>
+              Two Disciplines. <span className="italic font-normal text-brand">Zero Compromise.</span>
+            </>
+          }
           subtitle="A laser-focused creative synthesis of engineered web development and next-generation AI video production."
           align="center"
           className="mb-14"
