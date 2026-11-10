@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 
 export function Preloader() {
@@ -70,10 +71,14 @@ export function Preloader() {
               transition={{ duration: 0.3 }}
               className="flex items-center gap-2"
             >
-              <span className="text-2xl font-bold tracking-tighter uppercase font-display">
-                dammy<span className="text-brand">ux</span>
-              </span>
-              <span className="inline-block w-1.5 h-1.5 rounded-full bg-brand animate-ping" />
+              <Image
+                src="/images/dammyux-logo.jpg"
+                alt="DAMMYUX"
+                width={150}
+                height={55}
+                priority
+                className="h-10 w-auto object-contain"
+              />
             </motion.div>
 
             {/* Counter */}

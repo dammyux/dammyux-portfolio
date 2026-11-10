@@ -40,8 +40,8 @@ module.exports = {
         },
       },
       fontFamily: {
-        sans: ["Inter", "var(--font-sans)", "-apple-system", "BlinkMacSystemFont", "sans-serif"],
-        display: ["Poppins", "var(--font-display)", "sans-serif"],
+        sans: ["Inter", "system-ui", "-apple-system", "BlinkMacSystemFont", "sans-serif"],
+        display: ["'Bricolage Grotesque'", "system-ui", "sans-serif"],
       },
       animation: {
         "marquee-left": "marqueeLeft 60s linear infinite",

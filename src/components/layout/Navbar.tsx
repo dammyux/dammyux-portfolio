@@ -1,6 +1,7 @@
 ﻿"use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useState, useEffect } from "react";
 import { siteConfig } from "@/content/site";
@@ -34,11 +35,18 @@ export function Navbar() {
           <Link
             href="/"
             className="group flex items-center gap-2 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand rounded-md py-1"
+            aria-label="DAMMYUX Home"
           >
-            <span className="text-xl sm:text-2xl font-black tracking-tight uppercase text-white transition-colors">
-              DAMMY<span className="text-brand">UX</span>
-            </span>
-            <span className="w-1.5 h-1.5 rounded-full bg-brand group-hover:scale-150 transition-transform duration-300" />
+            <div className="relative h-8 sm:h-9 w-auto flex items-center">
+              <Image
+                src="/images/dammyux-logo.jpg"
+                alt="DAMMYUX"
+                width={150}
+                height={55}
+                priority
+                className="h-8 sm:h-9 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
+              />
+            </div>
           </Link>
 
           {/* Desktop Navigation Links */}

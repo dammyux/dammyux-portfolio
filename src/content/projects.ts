@@ -3,6 +3,11 @@ export interface ProjectResult {
   label: string;
 }
 
+export interface ProjectHighlight {
+  title: string;
+  desc: string;
+}
+
 export interface Project {
   slug: string;
   title: string;
@@ -23,6 +28,7 @@ export interface Project {
   services: string[];
   platforms: string[];
   tools: string[];
+  highlights?: ProjectHighlight[];
   challenge: string;
   approach: string;
   solution: string;
@@ -66,6 +72,10 @@ export const projects: Project[] = [
     liveUrl: "https://www.diamondlivingbydiamondkleen.com/",
     description:
       "An elegant, customer-focused furniture e-commerce website designed in Wix for Diamond Living by Diamond Kleen, an authorised wholesaler delivering premium home furnishings, cosy bedroom sets, sofas, and mattresses nationwide across Ireland.",
+    highlights: [
+      { title: "Bespoke Showcase", desc: "Curated collections with high-impact visuals" },
+      { title: "Direct Conversions", desc: "WhatsApp & consultation inquiry flows" },
+    ],
     services: [
       "Wix E-Commerce Design",
       "Catalog Architecture",
@@ -131,6 +141,10 @@ export const projects: Project[] = [
     liveUrl: "https://www.trowellbookkeepingandaccounts.co.uk/",
     description:
       "A clean, trustworthy financial services website designed in Wix for Trowell Bookkeeping and Accounts. The platform presents certified bookkeeping (MICB MP.Dip), VAT filing, payroll, and HMRC Making Tax Digital (MTD) compliance for UK sole traders and SMEs.",
+    highlights: [
+      { title: "MTD Compliant", desc: "Clear HMRC guidance & bookkeeping clarity" },
+      { title: "Trust & Authority", desc: "Transparent pricing & consultation booking" },
+    ],
     services: [
       "Wix Website Design",
       "Financial UX Design",
@@ -195,6 +209,10 @@ export const projects: Project[] = [
     liveUrl: "https://www.jennettemiller.com/",
     description:
       "A calming, trauma-informed private practice website designed in Wix for Jennette Miller, LCSW. The site provides a welcoming digital sanctuary for individuals, teens, and families seeking clinical therapy, EMDR, and secure telehealth in Groton, Connecticut.",
+    highlights: [
+      { title: "Calm Digital Space", desc: "Trauma-informed, peaceful visual identity" },
+      { title: "Frictionless Booking", desc: "Low-barrier client intake & contact path" },
+    ],
     services: [
       "Wix Website Design",
       "Therapeutic UX & Empathy Design",
@@ -259,6 +277,10 @@ export const projects: Project[] = [
     liveUrl: "https://www.matriarchhomeservices.com/",
     description:
       "A structured, empowering home and commercial support website designed in Wix for Matriarch Home Services. Based in Toronto, Ontario, the company connects households and busy professionals with vetted, background-checked women delivering cleaning, home assistance, and skilled trades.",
+    highlights: [
+      { title: "Local Presence", desc: "Service area coverage across 5+ locations" },
+      { title: "Rapid Quotes", desc: "Direct phone & estimate intake integration" },
+    ],
     services: [
       "Wix Website Design",
       "Brand Strategy & Storytelling",
@@ -323,6 +345,10 @@ export const projects: Project[] = [
     liveUrl: "https://www.purposewellness.net/",
     description:
       "A physician-guided medical wellness website designed in Wix for Purpose Wellness, an anti-aging and vitality clinic in North Port, Florida. The website presents advanced hormone replacement therapy (TRT & BHRT), medically supervised weight loss, and acoustic wave therapy (ECSWT).",
+    highlights: [
+      { title: "Clinical Clarity", desc: "Clear treatment breakdowns & therapy protocols" },
+      { title: "Discreet Intake", desc: "Confidential patient booking experience" },
+    ],
     services: [
       "Wix Website Design",
       "Medical UX & Patient Journey",
@@ -388,6 +414,10 @@ export const projects: Project[] = [
     liveUrl: "https://www.vertrouecaregivers.com/",
     description:
       "A compassionate, high-trust healthcare website designed in Wix for Vertroue Caregivers, a licensed Pennsylvania non-medical home care agency. The platform provides families across Philadelphia and surrounding suburbs with transparent care service tiers, caregiver vetting standards, and direct consultation booking.",
+    highlights: [
+      { title: "Compassionate UX", desc: "Family-first personal care service hierarchy" },
+      { title: "24/7 Care Access", desc: "Immediate emergency & consultation contact" },
+    ],
     services: [
       "Wix Website Design",
       "Healthcare UX Design",
@@ -459,6 +489,10 @@ export const projects: Project[] = [
     liveUrl: "https://timmydigitals.wixsite.com/my-site-13",
     description:
       "A professional Wix website designed for InkBlock Media, a content writing and SEO service business. The website presents the company's writing services, SEO content solutions and professional approach through a clean service focused layout designed to help visitors understand the available services and get in touch.",
+    highlights: [
+      { title: "Clear Story", desc: "Content & SEO solutions structured in plain words" },
+      { title: "One Action", desc: "Direct consultation intake front and center" },
+    ],
     services: [
       "Wix Website Design",
       "Website Design",
@@ -530,6 +564,10 @@ export const projects: Project[] = [
     liveUrl: "https://www.smithandassociates.com/",
     description:
       "A professional real estate website designed in WordPress for Smith & Associates Real Estate. The website combines a premium visual presentation with real estate functionality, allowing visitors to explore properties, featured listings, new developments, neighborhoods and real estate services.",
+    highlights: [
+      { title: "Luxury Aesthetics", desc: "Editorial layouts for prime developments" },
+      { title: "VIP Lead Capture", desc: "High-intent property inquiry conversion" },
+    ],
     services: [
       "WordPress Website Design",
       "Real Estate Website Design",

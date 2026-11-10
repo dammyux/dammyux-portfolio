@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { siteConfig } from "@/content/site";
 import { ThemeToggle } from "./ThemeToggle";
 import { ArrowUp, ArrowUpRight, Mail, MessageSquare } from "lucide-react";
@@ -18,9 +19,16 @@ export function Footer() {
           <div className="md:col-span-4 space-y-4">
             <Link
               href="/"
-              className="inline-flex items-center gap-2 text-2xl font-black uppercase tracking-tight text-neutral-900 dark:text-white"
+              className="inline-flex items-center gap-2"
+              aria-label="DAMMYUX Home"
             >
-              <span>DAMMY<span className="text-brand">UX</span></span>
+              <Image
+                src="/images/dammyux-logo.jpg"
+                alt="DAMMYUX"
+                width={160}
+                height={58}
+                className="h-10 w-auto object-contain"
+              />
             </Link>
             <p className="text-sm text-neutral-600 dark:text-neutral-400 max-w-sm leading-relaxed">
               {siteConfig.description}

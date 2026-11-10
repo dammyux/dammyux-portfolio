@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { siteConfig } from "@/content/site";
@@ -37,9 +38,13 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
           >
             {/* Header */}
             <div className="flex items-center justify-between pb-6 border-b border-white/[0.08]">
-              <span className="text-xl font-bold tracking-tight uppercase text-white">
-                DAMMY<span className="text-brand">UX</span>
-              </span>
+              <Image
+                src="/images/dammyux-logo.jpg"
+                alt="DAMMYUX"
+                width={130}
+                height={48}
+                className="h-8 w-auto object-contain"
+              />
               <button
                 onClick={onClose}
                 aria-label="Close navigation menu"
