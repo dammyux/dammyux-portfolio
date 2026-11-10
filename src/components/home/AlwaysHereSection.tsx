@@ -42,7 +42,7 @@ export function AlwaysHereSection() {
           badge="Signature Capabilities"
           title={
             <>
-              Always Here <span className="italic font-normal text-brand">When You Need It</span>
+              Always Here <span className="font-normal text-brand">When You Need It</span>
             </>
           }
           subtitle="From concept to high-scale execution, explore the eight core disciplines engineered to elevate your brand."

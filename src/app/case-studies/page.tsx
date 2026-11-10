@@ -20,7 +20,7 @@ export default function CaseStudiesPage() {
           title={
             <>
               Case Studies &amp;{" "}
-              <span className="italic font-normal text-brand">Client Transformations</span>
+              <span className="font-normal text-brand">Client Transformations</span>
             </>
           }
           subtitle="Explore the strategy, technical engineering, and data-backed outcomes behind our most impactful client deliverables."

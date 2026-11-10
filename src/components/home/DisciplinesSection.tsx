@@ -11,7 +11,7 @@ export function DisciplinesSection() {
           badge="Disciplines &amp; Toolkits"
           title={
             <>
-              Two Disciplines. <span className="italic font-normal text-brand">Zero Compromise.</span>
+              Two Disciplines. <span className="font-normal text-brand">Zero Compromise.</span>
             </>
           }
           subtitle="A laser-focused creative synthesis of engineered web development and next-generation AI video production."

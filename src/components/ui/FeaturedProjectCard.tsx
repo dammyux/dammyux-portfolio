@@ -30,22 +30,12 @@ export function FeaturedProjectCard({
   const formattedIndex = String(index + 1).padStart(2, "0");
   const metaCategory = (project.services[0] || project.category || "WEBSITE DESIGN").toUpperCase();
 
-  // Progressive sticky top offset for overlapping cards effect
-  // On desktop: offset by index * 24px so each card stacks and partially overlaps
-  // On mobile: offset by index * 12px for compact viewports
-  const topOffsetDesktop = 80 + index * 24;
-  const topOffsetMobile = 64 + index * 12;
-
   return (
     <article
-      style={{
-        top: `clamp(${topOffsetMobile}px, 8vh + ${index * 1.25}rem, ${topOffsetDesktop}px)`,
-        zIndex: 10 + index,
-      }}
       className={cn(
-        "sticky group w-full max-w-full overflow-hidden rounded-[24px] sm:rounded-[36px] bg-[#ECE9E2] dark:bg-[#111219] border border-neutral-300/80 dark:border-white/[0.09] p-3 sm:p-5 lg:p-6 transition-all duration-300",
+        "group w-full max-w-full overflow-hidden rounded-[24px] sm:rounded-[36px] bg-[#ECE9E2] dark:bg-[#111219] border border-neutral-300/80 dark:border-white/[0.09] p-3 sm:p-5 lg:p-6 transition-all duration-300",
         // Multi-layered elevated shadow for tactile card-stack depth
-        "shadow-[0_-12px_36px_-6px_rgba(0,0,0,0.12),0_20px_40px_-15px_rgba(0,0,0,0.1)] dark:shadow-[0_-16px_45px_-6px_rgba(0,0,0,0.7),0_25px_50px_-15px_rgba(0,0,0,0.8)]",
+        "shadow-[0_-15px_35px_-5px_rgba(0,0,0,0.14),0_25px_50px_-15px_rgba(0,0,0,0.12)] dark:shadow-[0_-18px_45px_-5px_rgba(0,0,0,0.85),0_30px_60px_-15px_rgba(0,0,0,0.9)]",
         className
       )}
     >

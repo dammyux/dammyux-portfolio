@@ -22,10 +22,10 @@ export function HeroSection() {
               <span>{siteConfig.availability}</span>
             </div>
 
-            {/* Main Headline with Editorial Italic Touch */}
+            {/* Main Headline with Bold & Regular Two-Weight Styling */}
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-[56px] font-extrabold font-display tracking-tight text-neutral-900 dark:text-[#eaecea] leading-[1.12] break-words">
               Digital Studio <br />
-              <span className="text-gradient-green italic font-normal">
+              <span className="text-gradient-green font-normal">
                 &amp; Web Architect
               </span>
             </h1>

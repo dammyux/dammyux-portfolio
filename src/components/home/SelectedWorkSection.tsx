@@ -17,7 +17,7 @@ export function SelectedWorkSection() {
             title={
               <>
                 Featured Projects &amp;{" "}
-                <span className="italic font-normal text-brand">Digital Flagships</span>
+                <span className="font-normal text-brand">Digital Flagships</span>
               </>
             }
             subtitle="A curated showcase of bespoke websites, UI/UX systems, and high-converting platforms engineered for high-growth businesses."
@@ -34,14 +34,22 @@ export function SelectedWorkSection() {
         </div>
 
         {/* Stacked Overlapping Cards Deck */}
-        <div className="relative flex flex-col gap-6 sm:gap-10 pb-12">
+        <div className="relative pb-16">
           {featuredProjects.map((project, idx) => (
-            <FeaturedProjectCard
+            <div
               key={project.slug}
-              project={project}
-              index={idx}
-              totalCount={featuredProjects.length}
-            />
+              className="sticky mb-8 sm:mb-14 last:mb-0 transition-transform"
+              style={{
+                top: `calc(76px + ${idx * 22}px)`,
+                zIndex: 10 + idx,
+              }}
+            >
+              <FeaturedProjectCard
+                project={project}
+                index={idx}
+                totalCount={featuredProjects.length}
+              />
+            </div>
           ))}
         </div>
       </div>

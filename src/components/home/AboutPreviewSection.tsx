@@ -21,7 +21,7 @@ export function AboutPreviewSection() {
               title={
                 <>
                   Architecting digital craft with{" "}
-                  <span className="italic font-normal text-brand">business purpose.</span>
+                  <span className="font-normal text-brand">business purpose.</span>
                 </>
               }
               subtitle={aboutContent.shortBio}

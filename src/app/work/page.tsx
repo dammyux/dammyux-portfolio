@@ -17,7 +17,7 @@ export default function WorkPage() {
           badge="Selected Portfolio"
           title={
             <>
-              Engineered <span className="italic font-normal text-brand">Digital Craft</span>
+              Engineered <span className="font-normal text-brand">Digital Craft</span>
             </>
           }
           subtitle="Explore our curated catalog of custom web flagships, SaaS product interfaces, and cinematic AI video campaigns."

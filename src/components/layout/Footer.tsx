@@ -98,7 +98,7 @@ export function Footer() {
               </li>
               <li>
                 <Link href="/services" className="hover:text-brand transition-colors">
-                  Services & Pricing
+                  Services & Offerings
                 </Link>
               </li>
               <li>

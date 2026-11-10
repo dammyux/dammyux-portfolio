@@ -78,7 +78,7 @@ export default function RootLayout({
           rel="stylesheet"
         />
       </head>
-      <body className="antialiased min-h-screen flex flex-col justify-between selection:bg-brand selection:text-neutral-950 font-sans bg-[#070709] text-[#eaecea] overflow-x-hidden">
+      <body className="antialiased min-h-screen flex flex-col justify-between selection:bg-brand selection:text-neutral-950 font-sans bg-[#070709] text-[#eaecea]">
         <ThemeProvider
           attribute="class"
           defaultTheme="dark"
@@ -88,7 +88,7 @@ export default function RootLayout({
         >
           <Preloader />
           <Navbar />
-          <main className="flex-grow w-full max-w-full overflow-x-hidden">{children}</main>
+          <main className="flex-grow w-full">{children}</main>
           <Footer />
         </ThemeProvider>
       </body>

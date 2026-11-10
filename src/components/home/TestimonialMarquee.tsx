@@ -67,7 +67,7 @@ export function TestimonialMarquee() {
           badge="Client Testimonials"
           title={
             <>
-              What Clients <span className="italic font-normal text-brand">Say</span>
+              What Clients <span className="font-normal text-brand">Say</span>
             </>
           }
           subtitle="Real feedback from founders, executives, and marketing leaders worldwide."

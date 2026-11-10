@@ -6,7 +6,7 @@ import { motion, AnimatePresence } from "framer-motion";
 
 export function Preloader() {
   const [loading, setLoading] = useState(true);
-  const [progress, setProgress] = useState(0);
+  const [progress, setProgress] = useState(1);
 
   useEffect(() => {
     // Check if previously loaded in this session
@@ -23,41 +23,48 @@ export function Preloader() {
       return;
     }
 
-    // Dynamic, fast journey progression
-    const steps = [
-      { value: 32, delay: 120 },
-      { value: 68, delay: 260 },
-      { value: 100, delay: 440 },
-    ];
+    // Natural, rhythmic count-up from 1 to 100 (~2 seconds)
+    let current = 1;
+    const interval = setInterval(() => {
+      let increment = 1;
+      if (current >= 30 && current < 75) {
+        // Natural slight pace variation through the middle
+        increment = Math.random() > 0.4 ? 2 : 1;
+      } else if (current >= 92) {
+        // Subtle deceleration into 100 for premium feel
+        increment = 1;
+      }
 
-    const timers: NodeJS.Timeout[] = [];
+      current += increment;
 
-    steps.forEach(({ value, delay }) => {
-      const timer = setTimeout(() => {
-        setProgress(value);
-      }, delay);
-      timers.push(timer);
-    });
+      if (current >= 100) {
+        current = 100;
+        setProgress(100);
+        clearInterval(interval);
 
-    const finishTimer = setTimeout(() => {
-      sessionStorage.setItem("dammyux_preloaded", "true");
-      setLoading(false);
-    }, 620);
-    timers.push(finishTimer);
+        // Brief pause at 100% before smooth fade out
+        setTimeout(() => {
+          sessionStorage.setItem("dammyux_preloaded", "true");
+          setLoading(false);
+        }, 320);
+      } else {
+        setProgress(current);
+      }
+    }, 24);
 
-    return () => {
-      timers.forEach(clearTimeout);
-    };
+    return () => clearInterval(interval);
   }, []);
 
-  // Journey milestones
+  // Journey milestones matching count
   const journeyStatus =
-    progress < 35
+    progress < 25
+      ? "Initializing design engine..."
+      : progress < 55
       ? "Curating digital flagships..."
-      : progress < 75
-      ? "Engineering interactive craft..."
+      : progress < 85
+      ? "Calibrating user interfaces..."
       : progress < 100
-      ? "Assembling design matrix..."
+      ? "Assembling interactive systems..."
       : "Welcome to DammyUX";
 
   return (
@@ -66,17 +73,17 @@ export function Preloader() {
         <motion.div
           key="preloader"
           initial={{ opacity: 1 }}
-          exit={{ opacity: 0, y: -24, filter: "blur(8px)" }}
-          transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
-          className="fixed inset-0 z-50 flex flex-col items-center justify-center bg-[#070709] text-white select-none"
+          exit={{ opacity: 0, scale: 0.98, y: -20, filter: "blur(6px)" }}
+          transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
+          className="fixed inset-0 z-50 flex flex-col items-center justify-center bg-[#070709] text-white select-none overflow-hidden"
         >
           {/* Subtle background ambient glow */}
-          <div className="absolute w-96 h-96 rounded-full bg-brand/15 blur-[120px] pointer-events-none animate-pulse-glow" />
+          <div className="absolute w-[450px] h-[450px] rounded-full bg-brand/12 blur-[130px] pointer-events-none" />
 
-          <div className="relative flex flex-col items-center gap-7 px-4">
+          <div className="relative flex flex-col items-center gap-7 px-4 max-w-sm w-full">
             {/* Prominent, Professional Logo with Brand Aura */}
             <motion.div
-              initial={{ opacity: 0, scale: 0.92, y: 10 }}
+              initial={{ opacity: 0, scale: 0.9, y: 12 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               transition={{ duration: 0.4, ease: "easeOut" }}
               className="relative flex items-center justify-center"
@@ -91,33 +98,42 @@ export function Preloader() {
               />
             </motion.div>
 
-            {/* Journey Milestone Status */}
-            <motion.div
-              key={journeyStatus}
-              initial={{ opacity: 0, y: 4 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 0.2 }}
-              className="text-xs sm:text-[13px] font-mono tracking-wide text-neutral-400 font-medium"
-            >
-              {journeyStatus}
-            </motion.div>
+            {/* Natural Digital Counter */}
+            <div className="flex items-baseline justify-center font-mono">
+              <span className="text-4xl sm:text-5xl font-black text-white tracking-tighter tabular-nums font-display">
+                {String(progress).padStart(2, "0")}
+              </span>
+              <span className="text-xl sm:text-2xl font-bold text-brand ml-1">%</span>
+            </div>
 
-            {/* Luminous Journey Path Indicator */}
-            <div className="flex flex-col items-center gap-2">
-              <div className="w-60 sm:w-72 h-[3px] bg-white/[0.08] rounded-full relative overflow-hidden backdrop-blur-sm border border-white/5">
-                {/* Flowing Energy Line */}
-                <motion.div
-                  className="h-full bg-gradient-to-r from-emerald-500/20 via-brand to-emerald-300 relative rounded-full"
+            {/* Journey Milestone Status Text */}
+            <div className="text-xs sm:text-[13px] font-mono tracking-wider text-neutral-400 text-center min-h-[20px]">
+              {journeyStatus}
+            </div>
+
+            {/* Interactive Animated Loading Line */}
+            <div className="w-full relative">
+              {/* Background Track */}
+              <div className="w-full h-[4px] bg-white/[0.08] rounded-full relative overflow-hidden backdrop-blur-sm border border-white/5">
+                {/* Real-time Progress Fill Bar */}
+                <div
+                  className="h-full bg-gradient-to-r from-emerald-500/40 via-brand to-emerald-300 relative rounded-full transition-all duration-75 ease-out"
                   style={{ width: `${progress}%` }}
-                  transition={{ ease: "easeInOut", duration: 0.25 }}
-                />
+                >
+                  {/* Shimmer sweep animation over the line */}
+                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/50 to-transparent animate-pulse" />
+                </div>
               </div>
 
-              {/* Counter percentage */}
-              <div className="flex items-baseline gap-1 font-mono text-[11px] tracking-widest text-neutral-500">
-                <span className="text-white font-semibold">{String(progress).padStart(2, "0")}</span>
-                <span className="text-brand font-bold">%</span>
+              {/* Glowing Traveling Pulse Head Indicator */}
+              <div
+                className="absolute top-1/2 -translate-y-1/2 -translate-x-1/2 transition-all duration-75 pointer-events-none"
+                style={{ left: `${progress}%` }}
+              >
+                <div className="relative flex items-center justify-center">
+                  <span className="absolute w-4 h-4 rounded-full bg-brand/50 animate-ping" />
+                  <span className="w-2.5 h-2.5 rounded-full bg-white shadow-[0_0_12px_#00ff87,0_0_20px_#00ff87]" />
+                </div>
               </div>
             </div>
           </div>
